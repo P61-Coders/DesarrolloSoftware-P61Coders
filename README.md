@@ -21,3 +21,6 @@ Crear botón de pagos, usando pse o PayU.
 - Gestion configuracion 
 - Historias de usuario de la pagina web
 - Creaciion scrumboard en gitHub
+- Gestión de configuración
+    software instalados:
+    - Git
