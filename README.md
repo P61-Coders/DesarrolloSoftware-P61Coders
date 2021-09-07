@@ -28,4 +28,4 @@ Crear botón de pagos, usando pse o PayU.
 - Creaciion scrumboard en gitHub
 - Gestión de configuración
  
-
+## Reunión 6/09/2021
