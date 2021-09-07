@@ -30,3 +30,7 @@ Crear botón de pagos, usando pse o PayU.
  
 ## Reunión 6/09/2021
 - Manejo Git
+- Product Backlog Priorizado.
+- ScrumBoard en azure
+- Asignación tareas sprint 1
+
