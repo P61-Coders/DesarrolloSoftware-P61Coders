@@ -1,0 +1,59 @@
+""--> no poner las comillas en ninguno de los casos
+Git Bash Here---Clic auxiliar en la carpeta
+
+--Primera vez, y única,en la carpeta en C del proyecto:
+git init
+git config --global user.name "tu nombre de usuario en Github"   (dvaid21)
+git config --global user.email "tu correo en Github"
+
+git config --global init.defaultbranch main (crear rama principal)
+git checkout -b dev (crear rama dev en main y ubicarse en dicha rama)
+git checkout -b "tarea" (crear rama para cada tarea en main y ubicarse en dicha rama -recomendacion codigo o nomenclarura para definir tarea p.e. tarea1-1 sería tarea 1 del sprint 1)
+git branch (muestra las ramas del proyecto y con * donde estoy trabajando)
+
+--Primera subida:
+git add . (para tomar los cambios)
+git status
+git commit -m “mensaje” (mensaje quiera que salga)
+git remote add origin "repositorio"  (agregar control remoto)
+git push --set-upstream origin master  (sale para colocar user y pass, selecciono mediante página web)
+
+--si no cierro la ventana anterior o
+--si cierro la ventana y vuelvo a hacer Git Bash Here luego de un tiempo
+git add .
+git status
+git commit -m “mensaje” (mensaje quierea que salga)
+git push (para enviar todo desde local a remoto)
+git push origin "rama o tarea" p.e. git push origin main para enviar lo hecho localmente a la rama main)
+
+git pull (para sincronizar desde  remoto a local)
+
+
+
+-------------------
+Otros Comandos
+-------------------
+pwd (ruta donde se está)
+ls -l (listado lo que hay dentro de la carpeta)
+cd "carpeta"/ (para ingresar en la carpeta o dir que indique)
+
+Los siguientes devuelven lo configurado arriba, si no sehizo devuelve vacio:
+git config --global user.name
+git config --global user.email
+
+git add "nombredearchivo.xxxx" (adicionar un solo archivo y sus cambios)
+git add "nombredearchivo1.xxxx" "nombredearchivo2.xxxx"(adicionar varios archivos y sus cambios)
+git diff "nombredearchivo.xxxx" (muestra las diferencias entre dos versiones)
+git log (diferentes etapas por las que se ha pasado al hacer add)
+git checkout "xxxxxxxx" (se pone el código del commit que desea 
+git clone "Nombre del repositorio" "Nuevo nombre de repositorio si se desea" (clona un repositorio remoto en nuestra maquína local)
+git remove -v
+touch "nombrearchivo.xxxx"(crear un archivo vacio)
+git branch -M main (si se tiene rama master , para renombrar a main)
+
+***Crear Readme:
+echo "# nombrerepositorio" README.md
+
+
+
+Código de color: Rojo lo que se cambió y Verde lo modificado
