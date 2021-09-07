@@ -16,8 +16,8 @@ Crear botón de pagos, usando pse o PayU.
 - Git/ Git Hub
     - Visual Studio Code
     - Google Drive
-    - <software para MOCKUPS> PENDIENTE
-    - <software para DEVOPS AZURE> PENDIENTE
+    - Wireframe
+    - DevOps Azure
 
 ## Reunión 2021/09/03
 - Sincronización git remoto y local
