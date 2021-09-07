@@ -16,21 +16,22 @@ Crear botón de pagos, usando pse o PayU.
     - Git/ Git Hub
     - Visual Studio Code
     - Google Drive
+    - <software para MOCKUPS> PENDIENTE
+    - <software para DEVOPS AZURE> PENDIENTE
 
-## Reunión 3/09/2021
+## Reunión 2021/09/03
 - Sincronización git remoto y local
 - Historias de usuario
 
-## Reunión 5/09/2021
-- Produc backlog
-- Gestion configuracion 
-- Historias de usuario de la pagina web
-- Creaciion scrumboard en gitHub
+## Reunión 2021/09/05
+- Product backlog
+- Gestión configuracion 
+- Historias de usuario de la página web
+- Creación Scrumboard en GitHub
 - Gestión de configuración
  
-## Reunión 6/09/2021
+## Reunión 2021/09/06
 - Manejo Git
 - Product Backlog Priorizado.
 - ScrumBoard en azure
 - Asignación tareas sprint 1
-
