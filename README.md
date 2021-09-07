@@ -29,3 +29,4 @@ Crear botón de pagos, usando pse o PayU.
 - Gestión de configuración
  
 ## Reunión 6/09/2021
+- Manejo Git
