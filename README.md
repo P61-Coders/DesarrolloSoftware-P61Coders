@@ -12,15 +12,20 @@ Adicional de manera opcional se plantea los siguiente requerimientos:
 El cliente podrá hacer seguimiento al pedido y mostrará el cálculo del tiempo de entrega con <base en el tiempo indicado por Waze>
 Crear botón de pagos, usando pse o PayU.
 
-## reunion 3/09/2021
+##Software instalados:
+    - Git
+    - Visual Studio Code
+    - Google Drive
+
+## Reunión 3/09/2021
 - Sincronización git remoto y local
 - Historias de usuario
 
-## reunion 5/09/2021
+## Reunión 5/09/2021
 - Produc backlog
 - Gestion configuracion 
 - Historias de usuario de la pagina web
 - Creaciion scrumboard en gitHub
 - Gestión de configuración
-    software instalados:
-    - Git
+ 
+
