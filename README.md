@@ -1,5 +1,11 @@
 # DesarrolloSoftware-P61Coders
-Este es el repositorio del grupo de 1 para el ciclo 3 de MicTic 2022
+Este es el repositorio del grupo No 1 para el ciclo 3 de MicTic 2022
+# Integrantes
+Daniel Gordillo (Scrum Master)
+Alfonso Gallegos (Product owner)
+David Fonseca (Development Team)
+David Arias(Development Team)
+Maria Carla Paez (Development Team)
 ## Enunciado inicial
 Historia de usuario
 En el equipo P61-CODERS queremos ofrecer una pasarela de pagos orientada a comercializar productos “FRUVER” y con el cual los clientes pueden pedir sus domicilios: 
