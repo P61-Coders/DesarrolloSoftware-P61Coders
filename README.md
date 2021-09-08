@@ -19,7 +19,7 @@ El cliente podrá hacer seguimiento al pedido y mostrará el cálculo del tiempo
 Crear botón de pagos, usando pse o PayU.
 
 ## Software instalados:
-- Git/ Git Hub
+    - Git/ Git Hub
     - Visual Studio Code
     - Google Drive
     - Wireframe
