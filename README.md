@@ -19,11 +19,11 @@ El cliente podrá hacer seguimiento al pedido y mostrará el cálculo del tiempo
 Crear botón de pagos, usando pse o PayU.
 
 ## Software instalados:
-    - Git/ Git Hub
-    - Visual Studio Code
-    - Google Drive
-    - Wireframe
-    - DevOps Azure
+- Git/ Git Hub
+- Visual Studio Code
+- Google Drive
+- Wireframe
+- DevOps Azure
 
 ## Reunión 2021/09/03
 - Sincronización git remoto y local
