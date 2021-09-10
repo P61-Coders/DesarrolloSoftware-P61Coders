@@ -8,15 +8,15 @@ David Arias(Development Team)
 Maria Carla Paez (Development Team)
 ## Enunciado inicial
 Historia de usuario
-En el equipo P61-CODERS queremos ofrecer una pasarela de pagos orientada a comercializar productos “FRUVER” y con el cual los clientes pueden pedir sus domicilios: 
+En el equipo P61-CODERS se desea ofrecer una pasarela de pagos orientada a comercializar productos “FRUVER” y con el cual los clientes pueden pedir sus domicilios: 
 Módulos
 Artículos:
-La página web mostrará los productos tipo frutas y verduras allí se especificará nombre, descripción, precio, stock, fecha de creación, estado, imagen o fotografía. tipo; orgánica o convencional.
+En la página web se visualizaran los productos de tipo frutas y verduras, allí se especificará: nombre, descripción, precio, stock, fecha de creación, estado, imagen o fotografía. tipo; orgánica o convencional.
 Informes:
-Adicionalmente cuando el cliente haga la compra se le enviará una factura por correo. También el usuario admon podrá configurar su inventario y generar su informe de ventas.
-Adicional de manera opcional se plantea los siguiente requerimientos:
+Adicionalmente cuando el cliente realice la compra se le enviará una factura vía e-mail. También el usuario admon podrá configurar su inventario y generar su informe de ventas.
+De manera opcional se plantea los siguiente requerimientos:
 El cliente podrá hacer seguimiento al pedido y mostrará el cálculo del tiempo de entrega con <base en el tiempo indicado por Waze>
-Crear botón de pagos, usando pse o PayU.
+Crear botón de pagos, usando pse o PayU. 
 
 ## Software instalados:
 - Git/ Git Hub
