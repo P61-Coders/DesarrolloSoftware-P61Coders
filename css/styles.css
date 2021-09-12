@@ -1,0 +1,150 @@
+/* selectores */
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1400px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-bottom{
+    display: flex;
+    height: 600px;
+    background-color:lightblue;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 120px;
+}
+
+.header-bottom-principal{
+    height: 300px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+button {
+    width: 180px;
+    background-color: black;
+    border: none;
+    color: white;
+    border: 1px solid black;
+    padding: 14px 40px;
+    border-radius: 30px;
+    text-align:center;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    
+}
+
+.menu-container {
+    width: 30%;
+}
+
+.main-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion-equipo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.miembro-equipo {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 20%;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    padding: 25px 25px 25px 25px;
+    margin: 15px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.miembro-equipo_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.miembro-equipo_img {
+    width: 180px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.miembro-equipo_par{
+    text-align: center;
+}
+
+.seccion-team {
+    display: flex;
+    align-items: center;
+}
+
+.miembro-team {
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+    width: 30%;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    padding: 25px 25px 25px 25px;
+    margin: 15px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.miembro-team_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.miembro-team_img {
+    width: 180px;
+    border-radius: 20px;
+}
+
+.miembro-team_par{
+    text-align: center;
+}
+
+.descripcion-team{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 50px;
+}
+
+.main-footer{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
