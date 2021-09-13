@@ -1,122 +1,98 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
   <head>
-
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fruver!</title>
-    <link rel="shortcut icon" href="icono.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css">
-    
+    <link rel="shortcut icon" href="icono.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/estilos.css" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet">
   </head>
 
   <body>
-
     <main>
 
-        <section>
-          <h2 class="seccion-equipo_title">Equipo</h2>
+      <!-- Seccion Equipo - Desarrollada por David Fonseca -->
+      <section>
 
-          <div class="seccion-equipo">
-            <article class="miembro-equipo">
-              <div><h3>Miembro 1</h3></div>
-              <div class="miembro-equipo_body">
-                <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
-                <p class="miembro-equipo_par">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                  magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-                  perspiciatis veniam?
-                </p>
-              </div>
-            </article>
+        <!-- Titulo de Seccion - Equipo -->
+        <div>
+          <h2 class="seccion-equipo_title">Nuestro Equipo</h2>
+        </div>
 
-            <article class="miembro-equipo">
-              <div><h3>Miembro 1</h3></div>
-              <div class="miembro-equipo_body">
-                <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
-                <p class="miembro-equipo_par">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                  magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-                  perspiciatis veniam?
-                </p>
-              </div>
-            </article>
+        <!-- Seccion de tarjetas - Equipo -->
+        <div class="seccion-equipo">
 
-            <article class="miembro-equipo">
-              <div><h3>Miembro 1</h3></div>
-              <div class="miembro-equipo_body">
-                <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
-                <p class="miembro-equipo_par">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                  magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-                  perspiciatis veniam?
-                </p>
-              </div>
-            </article>
+          <!-- Tarjeta 1 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
+              <h3 class="miembro-equipo_title">Alfonso Gallegos</h3>
+              <p class="miembro-equipo_par">
+                <b>Product owner</b> - Lorem ipsum dolor sit amet 
+              </p>
+            </div>
+          </article>
 
-            <article class="miembro-equipo">
-              <div><h3>Miembro 1</h3></div>
-              <div class="miembro-equipo_body">
-                <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
-                <p class="miembro-equipo_par">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                  magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-                  perspiciatis veniam?
-                </p>
-              </div>
-            </article>
+          <!-- Tarjeta 2 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img class="miembro-equipo_img" src="images/Daniel_Gordillo.jpg" alt="" />
+              <h3 class="miembro-equipo_title">Daniel Gordillo</h3>
+              <p class="miembro-equipo_par">
+                <b>Scrum Master</b>- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+                magnam a animi nostrum?
+              </p>
+            </div>
+          </article>
 
-            <article class="miembro-equipo">
-              <div><h3>Miembro 1</h3></div>
-              <div class="miembro-equipo_body">
-                <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
-                <p class="miembro-equipo_par">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                  magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-                  perspiciatis veniam?
-                </p>
-              </div>
-            </article>
-          </div>
+          <!-- Tarjeta 3 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img class="miembro-equipo_img" src="images/David_Fonseca.jpg" alt="" />
+              <h3 class="miembro-equipo_title">David Fonseca</h3>
+              <p class="miembro-equipo_par">
+                <b>Development Team</b> - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+                magnam a animi nostrum? Quaerat, ducimus iure consectetur est
+                perspiciatis veniam?
+              </p>
+            </div>
+          </article>
 
-          <div class="seccion-team">
-            <article class="miembro-team">
-              <div class="miembro-team_body">
-                <img class="miembro-team_img" src="images/miembro.jpg" alt="" />
-                <h3>Miembro 1</h3>
-                <p class="miembro-team_par">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                  magnam a animi nostrum?
-                </p>
-              </div>
-            </article>
+          <!-- Tarjeta 4 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
+              <h3 class="miembro-equipo_title">David Arias</h3>
+              <p class="miembro-equipo_par">
+                <b>Development Team</b> - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+                magnam a animi nostrum? Quaerat, ducimus iure consectetur est
+                perspiciatis veniam?
+              </p>
+            </div>
+          </article>
 
-            <article class="miembro-team">
-              <div class="miembro-team_body">
-                <img class="miembro-team_img" src="images/miembro.jpg" alt="" />
-                <h3>Miembro 1</h3>
-                <p class="miembro-team_par">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                  magnam a animi nostrum?
-                </p>
-              </div>
-            </article>
-
-            <article>
-              <div class="descripcion-team">
-                <h2>Grupo 1</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, alias facilis eligendi veritatis itaque pariatur eos at temporibus quia impedit, porro voluptatum, dolor unde. Dolorem!</p>
-                <button type="button">Click Aqui!</button>
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
+          <!-- Tarjeta 5 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
+              <h3 class="miembro-equipo_title">Maria Carla Paez</h3>
+              <p class="miembro-equipo_par">
+                <b>Development Team</b> - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+                magnam a animi nostrum? Quaerat, ducimus iure consectetur est
+                perspiciatis veniam?
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
     </main>
-
   </body>
 </html>
