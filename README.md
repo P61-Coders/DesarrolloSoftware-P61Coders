@@ -43,3 +43,14 @@ Crear botón de pagos, usando pse o PayU.
 
 ## Reunión 2021/09/07
 - ScrumBoard en azure
+
+## Reunión 2021/09/11
+- Se enseñó al equipo a realizar la conexión entre git y github, usando comandos como clone, push, commit, etc.
+- Se crearon las ramas para la secciónes de la pagina web
+
+## Reunión 2021/09/13
+- Se mostraron los avances de la sección servicios, la sección integrantes y la sección pie de página.
+- Se creó el esqueleto del index para luego proceder a hacer ek pull de cada una de las ramas de los 5 integrantes a la rama Dev
+
+
+
