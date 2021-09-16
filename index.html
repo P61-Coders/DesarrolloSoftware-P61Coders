@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruver</title>
-    <link rel="shortcut icon" href="icono.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="estilos.css">
-  
-  </head>
-  <body>
-  </body>
+<html lang="es">
+    <!-- CONFIGURACION GENERAL DE LA PÁGINA WEB -->
+    <head>
+        <title>FRUVER</title> <!-- texto de la pestaña -->
+        <meta charset="UTF-8">
+        <link href="css/estilos_encabezado.css" rel="stylesheet">
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet">
+    </head>
+
+    <!-- OBJETOS QUE CONFORMAN LA PÁGINA WEB -->
+    <body>
+        <header class="header"> <!-- MI SECCION DE LA PAGINA -->
+            <div class="buscar_productos">
+                <img src="images/buscador.PNG" alt="Buscador de productos" class="icono_buscador">
+            </div>
+            
+            <div class="encabezado_iconos">
+                <img src="images/inicioSesion.PNG" alt="Inicio de sesión">
+                <img src="images/carritoCompras.PNG" alt="Inicio de sesión">
+                <img src="images/logo.PNG">
+                <img src="images/PQR.PNG" alt="Inicio de sesión">
+                <img src="images/calendario.PNG" alt="Inicio de sesión">                
+                <img src="images/campanitaNotificaciones.PNG" alt="Inicio de sesión">
+            </div>
+            <div class="container logo-nav-container">
+                <nav class="navigation_vertical">
+                    <ul>
+                        <li><a href="frutas.html">FRUTAS</a></li>
+                        <li><a href="verduras.html">VERDURAS</a></li>
+                    </ul>
+                </nav>
+                <nav class="navigation_horizontal">
+                    <ul>
+                        <li><a href="#seccion-noticias">Noticias</a></li>
+                        <li><a href="#seccion-equipo">Integrantes</a></li>
+                        <li><a href="#seccion-footer">Texto_del_enlace del footer</a></li>
+                    </ul>
+                </nav>
+            </div><!-- FIN container-->
+            
+            <div class="separador-banner">
+                <hr>
+            </div>
+            <div class="banner">
+                BANNER DE MARIA CARLA
+            </div>
+            <div class="separador-banner">
+                <hr height="40" color="red">
+            </div>
+        </header>
+
+ 
+        <main class="main"> <!-- CONTENIDO PPAL DE LA PAGINA WEB -->
+
+            <section class= "seccion-noticias">
+                <a name="seccion_noticias">Sección del NOTICIAS EN LA MISMA PÁGINA</a>
+            </section>
+            
+            <section class= "seccion-articulos">
+                <a name="seccion_articulos">Sección del ARTICULOS EN LA MISMA PÁGINA</a>
+            </section>            
+            
+            <section id="seccion-equipo" class="seccion-equipo">
+                <a name="seccion_equipo">Sección del EQUIPO EN LA MISMA PÁGINA</a>
+            </section>
+
+            <div class="container">
+                <h1>TITULO DEL CONTENIDO PPAL DE LA PAGINA</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, aliquid itaque. Eveniet aperiam eaque ad deserunt culpa doloremque aliquid laudantium in, minima soluta, velit aut tenetur ex, debitis dolor et?</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, aliquid itaque. Eveniet aperiam eaque ad deserunt culpa doloremque aliquid laudantium in, minima soluta, velit aut tenetur ex, debitis dolor et?</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, aliquid itaque. Eveniet aperiam eaque ad deserunt culpa doloremque aliquid laudantium in, minima soluta, velit aut tenetur ex, debitis dolor et?</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, aliquid itaque. Eveniet aperiam eaque ad deserunt culpa doloremque aliquid laudantium in, minima soluta, velit aut tenetur ex, debitis dolor et?</p>
+            </div>
+        </main>
+
+        <footer>
+            <!-- fuente: https://www.aprende-web.net/html/html3_3.php -->
+            <h1>
+                <a name="seccion_footer">Sección del FOOTER EN LA MISMA PÁGINA</a>
+            </h1>
+        </footer>
+    </body>
 </html>
