@@ -1,4 +1,23 @@
+/*css header*/
+/*css header*/
+/*css header*/
+.banner{
+    display:flex;
+    
+}
+.banner>img{
+    width: 50%;
+}
+.logo{
+    background-color:rgb(225, 243, 236);
+    display: flex;
+    justify-content: center;
+}
 
+
+/*css frutas*/
+/*css frutas*/
+/*css frutas*/
 .seccion-articulos_titulo{
     border: 1px solid black;
     background-color: rgb(255, 225, 0);
