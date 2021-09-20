@@ -7,18 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Fruver</title>
+  <title>Fruver</title>  
   <link rel="shortcut icon" href="images/icono.jpg" type="image/x-icon">
   <link rel="stylesheet" href="css/estilos.css">
 
-  <!-- css seccion equipo -->
-  <link rel="stylesheet" href="css/estilos-equipo.css">
-  
+  <!-- Sección de JS -->
+  <link href="bibliotecas/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+
+  <!-- Sección de CSS -->
+  <link rel="stylesheet" href="css/estilos_encabezado.css" >
+  <link rel="stylesheet" href="css/estilos-equipo.css">  
   <link rel="stylesheet" href="css/estilos_servicios.css">
-
   
-  
-
   <!-- fonts seccion equipo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +26,59 @@
 </head>
 
 <body>
-  <header>
-  </header>
+    <header class="header"> <!-- por Alfonso Gallegos Téllez -->
+        <div class="buscar_productos">              
+            <form class="d-flex">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"/>
+                <button class="btn btn-outline-primary" type="submit">
+                  Buscar
+                </button>
+              </form>
+        </div>
+        
+        <!-- MODIFICACION
+            FECHA: 2021-09-19
+            AUTOR: Alfonso Gallegos
+            DESCRIPCIÓN: Para unificar el uso de íconos, se usa FONTSAWESOME
+        -->
+        <div class="iconos-fontsawesome">
+            <i class="fas fa-user-circle" style="font-size:60px;color:grey;"></i>
+            <i class="fas fa-shopping-cart"style="font-size:60px;color:grey;"></i>
+            
+            <img src="images/logo.PNG">
+        
+            <i class="far fa-angry" style="font-size:60px;color:grey;"></i>
+            <i class="far fa-calendar-alt" style="font-size:60px;color:grey;"></i>
+            <i class="fas fa-bell" style="font-size:60px;color:grey;"></i>
+        </div>
+        <!-- CODIGO DESPUES-FIN -->
+
+
+        <div class="container logo-nav-container">                
+            <!-- MENU DESPLEGABLE USANDO JAVASCRIPT, semejante a como lo hizo el profe Duque hoy 
+                FUENTE: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown -->
+            <div class="dropdown"> 
+                <button onclick="mostrarOcultarMenuDesplegable()" class="dropbtn">Catálogo</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="frutas.html">Frutas</a>
+                    <a href="verduras.html">Verduras</a>
+                    <a href="exoticas.html">Orgánicas y exóticas</a>
+                </div>
+            </div>             
+
+            <nav class="navigation_horizontal">
+                <ul>
+                    <li><a href="#seccion-noticias">Noticias</a></li>
+                    <li><a href="#seccion-equipo">Integrantes</a></li>
+                    <li><a href="#seccion-footer">Contacto</a></li>
+                </ul>
+            </nav>
+        </div><!-- FIN container-->
+    </header>       
 
   <main>
 
@@ -150,10 +201,8 @@
   <footer>
   </footer>
 
-
-  
-
-
+  <script src="js/header/header.js">
+  </script>
 
 </body>
 

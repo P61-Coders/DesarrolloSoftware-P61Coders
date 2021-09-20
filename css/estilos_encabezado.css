@@ -1,0 +1,186 @@
+body 
+{
+    /* background: white;*/
+    background-color: #E7F1E7;
+}
+
+.buscar_productos
+{    
+    /*width: 1200px;*/
+    height: 80px;
+    background-image: url("../images/cintaFrutasArriba.PNG");
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.separador_banner
+{
+    height: 40px;
+    color: red;    
+}
+
+.icono_buscador
+{
+    right: 0;
+}
+
+.container 
+{
+    width: 85%;
+    max-width: 1200px;
+}
+
+.header
+{
+    width: 85%;
+    max-width: 1200px;
+
+    background: #FFFFFF;
+    color: blue;
+
+    padding: 1rem 0;
+}
+
+.header a 
+{
+    color:black;
+    background: white;
+    text-decoration: none;
+}
+
+.encabezado_iconos
+{
+    display: flex;    
+    justify-content: space-between; 
+    align-items: flex-start;
+}
+
+.logo-nav-container
+{
+    display: flex;
+    justify-content: center; /* space-around;*/
+    align-items: center;
+}
+
+.navigation_vertical ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Fredoka One', cursive;
+}
+.navigation_vertical ul li 
+{
+    display: inline;
+}
+.navigation_vertical ul li a
+{
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear; /* para darle un breve retraso en la animación */
+    border-radius: 15px; /* redondeando las esquinas */
+}
+.navigation_vertical ul li a:hover 
+{
+    color: white;
+    background: #5A5A0A; /* background: #008040; */ 
+}
+
+.navigation_horizontal ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Fredoka One', cursive;
+}
+.navigation_horizontal ul li 
+{
+    display: inline-block; /* para que los elementos queden uno al lado del otro */
+}
+.navigation_horizontal ul li a
+{
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear; /* para darle un breve retraso en la animación */
+    border-radius: 15px; /* redondeando las esquinas */
+}
+.navigation_horizontal ul li a:hover 
+{
+    color: white;
+    background: #5A5A0A; /* background: #008040; */    
+}
+
+.banner
+{
+    background:white; /* background: green; */
+}
+
+/* ESTILOS PARA EL MENÚ DESPLEGABLE*/ 
+.dropbtn {
+    background-color: white;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Fredoka One', cursive;
+}
+  
+.dropbtn:hover /*, .dropbtn:focus */
+{
+    /*background-color: #2980B9;*/
+    color: white;
+    background: #5A5A0A; /* background: #008040; */                 
+    border-radius: 15px; /* redondeando las esquinas */
+}
+
+.dropdown 
+{
+    position: relative;
+    display: inline-block;    
+}
+
+.dropdown-content 
+{
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    /*background-color: #f1f1f1;
+
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    */
+    border-radius: 15px; /* redondeando las esquinas */
+}
+
+.dropdown-content a 
+{
+    color: black;                
+    text-decoration: none;
+    display: block;
+    font-family: 'Fredoka One', cursive;
+    
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear; /* para darle un breve retraso en la animación */
+    border-radius: 15px; /* redondeando las esquinas */              
+}
+
+.dropdown a:hover 
+{
+    color: white;
+    background: #5A5A0A; 
+}
+
+.show 
+{
+    display: block;
+}
+
+.iconos-fontsawesome
+{
+    display: flex;    
+    justify-content: space-between; 
+}
+
