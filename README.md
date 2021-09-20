@@ -53,4 +53,8 @@ Crear botón de pagos, usando pse o PayU.
 - Se creó el esqueleto del index para luego proceder a hacer ek pull de cada una de las ramas de los 5 integrantes a la rama Dev
 
 
+<<<<<<< HEAD
 ## COMMIT 2021-09-17 - Se adicionó el menú desplegable
+=======
+
+>>>>>>> origin/Dev
