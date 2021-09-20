@@ -4,7 +4,7 @@
     <head>
         <title>FRUVER</title> <!-- texto de la pestaña -->
         <meta charset="UTF-8">
-        <link href="css/estilos_encabezado.css" rel="stylesheet">   
+        <link href="css/estilos_encabezado.css" rel="stylesheet">
 
         <link href="bibliotecas/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
 
@@ -12,94 +12,24 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet">
-
-
-        <!-- CODIGO PARA MENU DESPLEGABLE SIN HTML -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>        
-        .navbar-SINJS {
-          overflow: hidden;
-          background-color: #333;
-        }
-        
-        .navbar-SINJS a {
-          float: left;
-          font-size: 16px;
-          color: white;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-        }
-        
-        .dropdown-SINJS {
-          float: left;
-          overflow: hidden;
-        }
-        
-        .dropdown-SINJS .dropbtn-SINJS {
-          font-size: 16px;  
-          border: none;
-          outline: none;
-          color: white;
-          padding: 14px 16px;
-          background-color: inherit;
-          font-family: inherit;
-          margin: 0;
-        }
-        
-        .navbar-SINJS a:hover, .dropdown-SINJS:hover .dropbtn-SINJS {
-          background-color: red;
-        }
-        
-        .dropdown-content-SINJS {
-          display: none;
-          position: absolute;
-          background-color: #f9f9f9;
-          min-width: 160px;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-          z-index: 1;
-        }
-        
-        .dropdown-content-SINJS a {
-          float: none;
-          color: black;
-          padding: 12px 16px;
-          text-decoration: none;
-          display: block;
-          text-align: left;
-        }
-        
-        .dropdown-content-SINJS a:hover {
-          background-color: #ddd;
-        }
-        
-        .dropdown-SINJS:hover .dropdown-content-SINJS {
-          display: block;
-        }
-
-        /* ICONOS FONTSAWESOME */
-        .iconos-fontsawesome i {
-            font-size: 100px;
-            color:green;
-            background-color: white;
-        }
-        </style>
     </head>
 
     <!-- OBJETOS QUE CONFORMAN LA PÁGINA WEB -->    
     <body>
         <header class="header"> <!-- por Alfonso Gallegos Téllez -->
-            <!-- para el botón de búsqueda -> ver clase del 2021-09-17 que el profe lo explicó
-            <div>
-                <form action="/action_page.php">
-                    <label for="filtroProductos">Filtro de Productos:</label>
-                    <input type="text" id="filtroProductos" name="filtroProductos"><br>
-                    <input type="submit" value="Submit">
+            <div class="buscar_productos">              
+                <form class="d-flex">
+                    <input
+                      class="form-control me-2"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"/>
+                    <button class="btn btn-outline-primary" type="submit">
+                      Buscar
+                    </button>
                   </form>
-            </div>
-            -->
-            <div class="buscar_productos">
-                <img src="images/buscador.PNG" alt="Buscador de productos" class="icono_buscador">
+
+
             </div>
 
             <!-- MODIFICACION
@@ -107,29 +37,8 @@
                 AUTOR: Alfonso Gallegos
                 DESCRIPCIÓN: Para unificar el uso de íconos, se usa FONTSAWESOME
             -->
-            <!-- CODIGO ANTES-INI
-            <div class="encabezado_iconos">
-                <img src="images/inicioSesion.PNG" alt="Inicio de sesión">
-                <img src="images/carritoCompras.PNG" alt="Inicio de sesión">
-                <img src="images/logo.PNG">
-                <img src="images/PQR.PNG" alt="Inicio de sesión">
-                <img src="images/calendario.PNG" alt="Calendario">                
-                <img src="images/campanitaNotificaciones.PNG" alt="Inicio de sesión">
-            </div>
-            --> <!-- CODIGO ANTES-FIN -->
-            <!-- CODIGO DESPUES-INI-->
-            <div class="encabezado_iconos">
-                <img src="images/inicioSesion.PNG" alt="Inicio de sesión">
-                <img src="images/carritoCompras.PNG" alt="Inicio de sesión">
-                <img src="images/logo.PNG">
-                <img src="images/PQR.PNG" alt="Inicio de sesión">
-                <img src="images/calendario.PNG" alt="Calendario">                
-                <img src="images/campanitaNotificaciones.PNG" alt="Inicio de sesión">
-            </div>
             <div class="iconos-fontsawesome">
-                <!--<i class="fas fa-search" style="font-size:60px;color:grey;"></i>-->           
-                
-                <i class="fas fa-user-circle" style="font-size:60px;color:grey;"></i>	
+                <i class="fas fa-user-circle" style="font-size:60px;color:grey;"></i>
                 <i class="fas fa-shopping-cart"style="font-size:60px;color:grey;"></i>
                 
                 <img src="images/logo.PNG">
@@ -142,16 +51,6 @@
 
 
             <div class="container logo-nav-container">                
-                <!-- antigua versión del menú vertical
-                <nav class="navigation_vertical">
-                    <ul>
-                        <li><a href="frutas.html">FRUTAS</a></li>
-                        <li><a href="verduras.html">VERDURAS</a></li>
-                        <li><a href="exoticas.html">ORGÁNICAS Y EXÓTICAS</a></li>
-                    </ul>
-                </nav>
-                -->
-
                 <!-- MENU DESPLEGABLE USANDO JAVASCRIPT, semejante a como lo hizo el profe Duque hoy 
                     FUENTE: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown -->
                 <div class="dropdown"> 
@@ -172,113 +71,25 @@
                 </nav>
             </div><!-- FIN container-->
 
-            <!-- MENU DESPLEGABLE USANDO SOLAMENTE HTML 
-                FUENTE: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_dropdown_navbar
-            --> 
-            <div class="navbar-SINJS">
-                <div class="dropdown-SINJS">
-                    <button class="dropbtn-SINJS">Dropdown sin JAVASCRIPT
-                        <!-- <i class="fa fa-caret-down"></i> -->
-                    </button>
-                    <div class="dropdown-content-SINJS">
-                        <a href="frutas.html">Frutas</a>
-                        <a href="verduras.html">Verduras</a>
-                        <a href="exoticas.html">Orgánicas y exóticas</a>
-                    </div>
-                </div> 
-                <a href="#seccion-noticias">Noticias</a>
-                <a href="#seccion-equipo">Integrantes</a>
-                <a href="#seccion-footer">Contacto</a>
-            </div>            
-
-            
-            <div class="separador-banner">
-                <hr>
-            </div>
-            <div class="banner">
-                BANNER DE PRODUCTOS EN OFERTA
-            </div>
-            <div class="separador-banner">
-                <hr>
-            </div>            
-
-
-            <div class="banner"> <!-- por Maria Clara Paez -->
-                <img src="./banner.jpg" alt="Imagen del banner">
-            </div>
-
-        </header>
-
-
-
-        
+        </header>       
 
  
         <main class="main"> <!-- CONTENIDO PPAL DE LA PAGINA WEB -->
             <section class= "seccion-noticias">
-                <hr>
-                <a name="seccion_noticias">Sección de NOTICIAS EN LA MISMA PÁGINA</a>
-                <hr>
             </section>
             
             <section class= "seccion-articulos">
-                <hr>
-                <a name="seccion_articulos">Sección de ARTICULOS EN LA MISMA PÁGINA</a>
-                <hr>
             </section>            
             
-            <section id="seccion-equipo" class="seccion-equipo">
-                <hr>
-                <a name="seccion_equipo">Sección de EQUIPO EN LA MISMA PÁGINA</a>
-                <hr>
+            <section class="seccion-equipo">
             </section>
-
-            <div class="container">
-            </div>
         </main>
 
         <footer>
-            <!-- fuente: https://www.aprende-web.net/html/html3_3.php -->
-            <h1>
-                <a name="seccion_footer">Sección del FOOTER EN LA MISMA PÁGINA</a>
-            </h1>
         </footer>
 
-        <!-- SCRIPT PARA COMPORTAMIENTO DEL MENÚ DROPDOWN -->
-        <!-- FUENTE: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown -->
-        <script>
-            /*  Fecha: 2021-09-17
-                Autor: Alfonso Gallegos
-                Descripción: Cuando el usuario presiona el botón, éste cambia entre
-                mostrar/ocultar el contenido del menú.
-            */            
-            function mostrarOcultarMenuDesplegable() 
-            {
-                document.getElementById("myDropdown").classList.toggle("show");
-            }            
-
-            // Close the dropdown if the user clicks outside of it
-            /*  Fecha: 2021-09-17
-                Autor: Alfonso Gallegos
-                Descripción: Cerrar el menú desplegable cuando el usuario hace
-                clic en alguna parte fuera del menú.                
-            */
-            window.onclick = function(event) 
-            {
-                if (!event.target.matches('.dropbtn')) 
-                {
-                    var dropdowns = document.getElementsByClassName("dropdown-content");
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) 
-                    {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains('show')) 
-                        {
-                            openDropdown.classList.remove('show');
-                        }
-                    }
-                }
-            }
+        <script src="js/header/header.js">
         </script>
+
     </body>
 </html>
