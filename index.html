@@ -1,209 +1,234 @@
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruver</title>
+    <link rel="shortcut icon" href="images/icono.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/estilos.css" />
 
-  <title>Fruver</title>  
-  <link rel="shortcut icon" href="images/icono.jpg" type="image/x-icon">
-  <link rel="stylesheet" href="css/estilos.css">
+    <!-- Sección de JS -->
+    <link
+      href="bibliotecas/fontawesome-free-5.15.4-web/css/all.css"
+      rel="stylesheet"
+    />
 
-  <!-- Sección de JS -->
-  <link href="bibliotecas/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <!-- Sección de CSS -->
+    <link rel="stylesheet" href="css/estilos_encabezado.css" />
+    <link rel="stylesheet" href="css/estilos-equipo.css" />
+    <link rel="stylesheet" href="css/estilos_servicios.css" />
 
-  <!-- Sección de CSS -->
-  <link rel="stylesheet" href="css/estilos_encabezado.css" >
-  <link rel="stylesheet" href="css/estilos-equipo.css">  
-  <link rel="stylesheet" href="css/estilos_servicios.css">
-  
-  <!-- fonts seccion equipo -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet">
-</head>
+    <!-- fonts seccion equipo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-    <header class="header"> <!-- por Alfonso Gallegos Téllez -->
-        <div class="buscar_productos">              
-            <form class="d-flex">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"/>
-                <button class="btn btn-outline-primary" type="submit">
-                  Buscar
-                </button>
-              </form>
-        </div>
-        
-        <!-- MODIFICACION
+  <body>
+    <header class="header">
+      <!-- por Alfonso Gallegos Téllez -->
+      <div class="buscar_productos">
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </form>
+      </div>
+
+      <!-- MODIFICACION
             FECHA: 2021-09-19
             AUTOR: Alfonso Gallegos
             DESCRIPCIÓN: Para unificar el uso de íconos, se usa FONTSAWESOME
         -->
-        <div class="iconos-fontsawesome">
-            <i class="fas fa-user-circle" style="font-size:60px;color:grey;"></i>
-            <i class="fas fa-shopping-cart"style="font-size:60px;color:grey;"></i>
-            
-            <img src="images/logo.PNG">
-        
-            <i class="far fa-angry" style="font-size:60px;color:grey;"></i>
-            <i class="far fa-calendar-alt" style="font-size:60px;color:grey;"></i>
-            <i class="fas fa-bell" style="font-size:60px;color:grey;"></i>
-        </div>
-        <!-- CODIGO DESPUES-FIN -->
+      <div class="iconos-fontsawesome">
+        <i class="fas fa-user-circle" style="font-size: 60px; color: grey"></i>
+        <i
+          class="fas fa-shopping-cart"
+          style="font-size: 60px; color: grey"
+        ></i>
 
+        <img src="images/logo.PNG" />
 
-        <div class="container logo-nav-container">                
-            <!-- MENU DESPLEGABLE USANDO JAVASCRIPT, semejante a como lo hizo el profe Duque hoy 
+        <i class="far fa-angry" style="font-size: 60px; color: grey"></i>
+        <i class="far fa-calendar-alt" style="font-size: 60px; color: grey"></i>
+        <i class="fas fa-bell" style="font-size: 60px; color: grey"></i>
+      </div>
+      <!-- CODIGO DESPUES-FIN -->
+
+      <div class="container logo-nav-container">
+        <!-- MENU DESPLEGABLE USANDO JAVASCRIPT, semejante a como lo hizo el profe Duque hoy 
                 FUENTE: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown -->
-            <div class="dropdown"> 
-                <button onclick="mostrarOcultarMenuDesplegable()" class="dropbtn">Catálogo</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="frutas.html">Frutas</a>
-                    <a href="verduras.html">Verduras</a>
-                    <a href="exoticas.html">Orgánicas y exóticas</a>
-                </div>
-            </div>             
+        <div class="dropdown">
+          <button onclick="mostrarOcultarMenuDesplegable()" class="dropbtn">
+            Catálogo
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="frutas.html" target="_blank">Frutas</a>
+            <a href="verduras.html" target="_blank">Verduras</a>
+            <a href="exoticas.html" target="_blank">Orgánicas y exóticas</a>
+          </div>
+        </div>
 
-            <nav class="navigation_horizontal">
-                <ul>
-                    <li><a href="#seccion-noticias">Noticias</a></li>
-                    <li><a href="#seccion-equipo">Integrantes</a></li>
-                    <li><a href="#seccion-footer">Contacto</a></li>
-                </ul>
-            </nav>
-        </div><!-- FIN container-->
-    </header>       
-
-  <main>
-
-    <section class="seccion-noticias">
-    </section>
-
-
-    <h2 class="seccion-articulos_titulo">SECCIÓN SERVICIOS</h2>
-    <!-- Seccion Equipo - Desarrollada por santiago gordillo -->
-    <section class="seccion-articulos">
-      <article class="frutas">
-        <h2 class="frutas_titulo">FRUTAS</h2>
-        <img class="frutas_imagen" src="images/frutas.jpg" alt="Frutas colombianas">
-        <p class="frutas_descripcion">
-          Clic aquí para encontrar las mejores y todas las<br>
-          <a href="frutas.html" target="_blank">Frutas de nuestro campo colombiano </a>
-
-        </p>
-      </article>
-
-      <article class="verduras">
-        <h2 class="verduras_titulo">VERDURAS</h2>
-        <img class="verduras_imagen" src="images/verduras.jpg" alt="Verduras colombianas">
-        <p class="verduras_descripcion">
-          Clic aquí para encontrar las mejores y todas las<br>
-          <a href="verduras.html" target="_blank">Verduras de nuestro campo Colombiano </a>
-
-        </p>
-      </article>
-
-      <article class="otros">
-        <h2 class="otros_titulo">EXÓTICOS - ORGÁNICOS</h2>
-        <img class="otros_imagen" src="images/exoticas.jpg" alt="exoticos colombianas">
-        <p class="otros_descripcion">
-          Clic aquí para encontrar las mejores <br>
-          <a href="exoticas.html" target="_blank">Frutas y verduras exóticas y/o orgánicas </a>
-
-        </p>
-      </article>
-    </section>
-
-
-
-    <!-- Seccion Equipo - Desarrollada por David Fonseca -->
-    <section class="seccion-equipo">
-
-      <!-- Titulo de Seccion - Equipo -->
-      <div>
-        <h2 class="seccion-equipo_title">Nuestro Equipo</h2>
+        <nav class="navigation_horizontal">
+          <ul>
+            <li><a href="#seccion-noticias">Noticias</a></li>
+            <li><a href="#seccion-equipo">Integrantes</a></li>
+            <li><a href="#seccion-footer">Contacto</a></li>
+          </ul>
+        </nav>
       </div>
+      <!-- FIN container-->
+    </header>
 
-      <!-- Seccion de tarjetas - Equipo -->
-      <div class="seccion-equipo_body">
+    <main>
+      <section class="seccion-noticias" id="seccion-noticias"></section>
 
-        <!-- Tarjeta 1 -->
-        <article class="tarjeta-miembro-equipo">
-          <div class="miembro-equipo_body">
-            <img class="miembro-equipo_img" src="images/Alfonso_Gallegos.jpg" alt="" />
-            <h3 class="miembro-equipo_title">Alfonso Gallegos</h3>
-            <p class="miembro-equipo_par">
-              <b>Product owner</b> - Lorem ipsum dolor sit amet
-            </p>
-          </div>
+      <!-- Seccion Equipo - Desarrollada por santiago gordillo -->
+      <section class="seccion-articulos">
+        <article class="frutas">
+          <h2 class="frutas_titulo">FRUTAS</h2>
+          <img
+            class="frutas_imagen"
+            src="images/frutas.jpg"
+            alt="Frutas colombianas"
+          />
+          <p class="frutas_descripcion">
+            Clic aquí para encontrar las mejores y todas las<br />
+            <a href="frutas.html" target="_blank"
+              >Frutas de nuestro campo colombiano
+            </a>
+          </p>
         </article>
 
-        <!-- Tarjeta 2 -->
-        <article class="tarjeta-miembro-equipo">
-          <div class="miembro-equipo_body">
-            <img class="miembro-equipo_img" src="images/Daniel_Gordillo.jpg" alt="" />
-            <h3 class="miembro-equipo_title">Daniel Gordillo</h3>
-            <p class="miembro-equipo_par">
-              <b>Scrum Master</b>- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-              magnam a animi nostrum?
-            </p>
-          </div>
+        <article class="verduras">
+          <h2 class="verduras_titulo">VERDURAS</h2>
+          <img
+            class="verduras_imagen"
+            src="images/verduras.jpg"
+            alt="Verduras colombianas"
+          />
+          <p class="verduras_descripcion">
+            Clic aquí para encontrar las mejores y todas las<br />
+            <a href="verduras.html" target="_blank"
+              >Verduras de nuestro campo Colombiano
+            </a>
+          </p>
         </article>
 
-        <!-- Tarjeta 3 -->
-        <article class="tarjeta-miembro-equipo">
-          <div class="miembro-equipo_body">
-            <img class="miembro-equipo_img" src="images/David_Fonseca.jpg" alt="" />
-            <h3 class="miembro-equipo_title">David Fonseca</h3>
-            <p class="miembro-equipo_par">
-              <b>Development Team</b> - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-              magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-              perspiciatis veniam?
-            </p>
-          </div>
+        <article class="otros">
+          <h2 class="otros_titulo">EXÓTICOS - ORGÁNICOS</h2>
+          <img
+            class="otros_imagen"
+            src="images/exoticas.jpg"
+            alt="exoticos colombianas"
+          />
+          <p class="otros_descripcion">
+            Clic aquí para encontrar las mejores <br />
+            <a href="exoticas.html" target="_blank"
+              >Frutas y verduras exóticas y/o orgánicas
+            </a>
+          </p>
         </article>
+      </section>
 
-        <!-- Tarjeta 4 -->
-        <article class="tarjeta-miembro-equipo">
-          <div class="miembro-equipo_body">
-            <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
-            <h3 class="miembro-equipo_title">David Arias</h3>
-            <p class="miembro-equipo_par">
-              <b>Development Team</b> - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-              magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-              perspiciatis veniam?
-            </p>
-          </div>
-        </article>
+      <!-- Seccion Equipo - Desarrollada por David Fonseca -->
+      <section class="seccion-equipo" id="seccion-equipo">
+        <!-- Titulo de Seccion - Equipo -->
+        <div>
+          <h2 class="seccion-equipo_title">Nuestro Equipo</h2>
+        </div>
 
-        <!-- Tarjeta 5 -->
-        <article class="tarjeta-miembro-equipo">
-          <div class="miembro-equipo_body">
-            <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
-            <h3 class="miembro-equipo_title">Maria Carla Paez</h3>
-            <p class="miembro-equipo_par">
-              <b>Development Team</b> - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-              magnam a animi nostrum? Quaerat, ducimus iure consectetur est
-              perspiciatis veniam?
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
+        <!-- Seccion de tarjetas - Equipo -->
+        <div class="seccion-equipo_body">
+          <!-- Tarjeta 1 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img
+                class="miembro-equipo_img"
+                src="images/Alfonso_Gallegos.jpg"
+                alt=""
+              />
+              <h3 class="miembro-equipo_title">Alfonso Gallegos</h3>
+              <p class="miembro-equipo_par">
+                <b>Product owner</b> - Lorem ipsum dolor sit amet
+              </p>
+            </div>
+          </article>
 
-  <footer>
-  </footer>
+          <!-- Tarjeta 2 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img
+                class="miembro-equipo_img"
+                src="images/Daniel_Gordillo.jpg"
+                alt=""
+              />
+              <h3 class="miembro-equipo_title">Daniel Gordillo</h3>
+              <p class="miembro-equipo_par">
+                <b>Scrum Master</b>- Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. Minima magnam a animi nostrum?
+              </p>
+            </div>
+          </article>
 
-  <script src="js/header/header.js">
-  </script>
+          <!-- Tarjeta 3 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img
+                class="miembro-equipo_img"
+                src="images/David_Fonseca.jpg"
+                alt=""
+              />
+              <h3 class="miembro-equipo_title">David Fonseca</h3>
+              <p class="miembro-equipo_par">
+                <b>Development Team</b> - Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Minima magnam a animi nostrum?
+                Quaerat, ducimus iure consectetur est perspiciatis veniam?
+              </p>
+            </div>
+          </article>
 
-</body>
+          <!-- Tarjeta 4 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
+              <h3 class="miembro-equipo_title">David Arias</h3>
+              <p class="miembro-equipo_par">
+                <b>Development Team</b> - Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Minima magnam a animi nostrum?
+                Quaerat, ducimus iure consectetur est perspiciatis veniam?
+              </p>
+            </div>
+          </article>
 
+          <!-- Tarjeta 5 -->
+          <article class="tarjeta-miembro-equipo">
+            <div class="miembro-equipo_body">
+              <img class="miembro-equipo_img" src="images/miembro.jpg" alt="" />
+              <h3 class="miembro-equipo_title">Maria Carla Paez</h3>
+              <p class="miembro-equipo_par">
+                <b>Development Team</b> - Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Minima magnam a animi nostrum?
+                Quaerat, ducimus iure consectetur est perspiciatis veniam?
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="seccion-footer"></footer>
+
+    <script src="js/header/header.js"></script>
+  </body>
 </html>
