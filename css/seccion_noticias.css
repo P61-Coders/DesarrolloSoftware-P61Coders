@@ -1,12 +1,17 @@
-.seccion-noticias {
-    margin-top: 100px;
+
+
+.carrusel{
+    
+    margin-right: 100px;
+    margin-left: 100px;
+    
 }
 
-.carousel-item >img{
-    width:800px;
-}
 
-.container {
-    margin-top:100px;
+.seccion_noticias_texto{
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+    
 }
 
