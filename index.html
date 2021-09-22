@@ -2,312 +2,319 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruver</title>
-    <link rel="shortcut icon" href="images/icono.jpg" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fruver</title>
+  <link rel="shortcut icon" href="images/logo.PNG" type="image/x-icon" />
 
-    <!-- JS -->
-    <link href="bibliotecas/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet" />
+  <!-- JS -->
+  <link href="bibliotecas/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilos_encabezado.css" />
-    <link rel="stylesheet" href="css/estilos_equipo.css" />
-    <link rel="stylesheet" href="css/estilos_servicios.css" />
-    <link rel="stylesheet" href="css/seccion_noticias.css" />
-    <link rel="stylesheet" href="css/pie_pagina.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/estilos_encabezado.css" />
+  <link rel="stylesheet" href="css/estilos_equipo.css" />
+  <link rel="stylesheet" href="css/estilos_servicios.css" />
+  <link rel="stylesheet" href="css/seccion_noticias.css" />
+  <link rel="stylesheet" href="css/pie_pagina.css">
 
-    <!-- Bootrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+  <!-- Bootrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet" />
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Seccion Noticias - Desarrollada por Alfonso Gallegos -->
-    <header class="header">
-        <div class="buscar_productos">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-primary" type="submit">Buscar</button>
-            </form>
-        </div>
+  <!-- Seccion Noticias - Desarrollada por Alfonso Gallegos -->
+  <header class="header">
+    <div class="buscar_productos">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+      </form>
+    </div>
 
-        <!-- MODIFICACION
+    <!-- MODIFICACION
             FECHA: 2021-09-19
             AUTOR: Alfonso Gallegos
             DESCRIPCIÓN: Para unificar el uso de íconos, se usa FONTSAWESOME
         -->
-        <div class="iconos-fontsawesome">
-            <i class="fas fa-user-circle" style="font-size: 60px; color: grey"></i>
-            <i class="fas fa-shopping-cart" style="font-size: 60px; color: grey"></i>
 
-            <img src="images/logo.PNG" />
+    <div class="iconos-fontsawesome">
+      <i class="fas fa-user-circle" style="font-size: 60px; color: grey"></i>
+      <i class="fas fa-shopping-cart" style="font-size: 60px; color: grey"></i>
 
-            <i class="far fa-angry" style="font-size: 60px; color: grey"></i>
-            <i class="far fa-calendar-alt" style="font-size: 60px; color: grey"></i>
-            <i class="fas fa-bell" style="font-size: 60px; color: grey"></i>
+      <img src="images/logo.PNG" />
+
+      <i class="far fa-angry" style="font-size: 60px; color: grey"></i>
+      <i class="far fa-calendar-alt" style="font-size: 60px; color: grey"></i>
+      <i class="fas fa-bell" style="font-size: 60px; color: grey"></i>
+    </div>
+    <!-- CODIGO DESPUES-FIN -->
+
+    <div class="container logo-nav-container">
+      <!-- MENU DESPLEGABLE USANDO JAVASCRIPT, semejante a como lo hizo el profe Duque hoy 
+                FUENTE: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown -->
+      <div class="dropdown">
+        <button onclick="mostrarOcultarMenuDesplegable()" class="dropbtn">
+          Catálogo
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="frutas.html" target="_blank">Frutas</a>
+          <a href="verduras.html" target="_blank">Verduras</a>
+          <a href="exoticas.html" target="_blank">Orgánicas y exóticas</a>
         </div>
-        <!-- CODIGO DESPUES-FIN -->
+      </div>
 
-        <div class="container logo-nav-container">
-            <!-- MENU DESPLEGABLE USANDO JAVASCRIPT, semejante a como lo hizo el profe Duque hoy 
-            FUENTE: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown -->
-            <div class="dropdown">
-                <button onclick="mostrarOcultarMenuDesplegable()" class="dropbtn">
-                    Catálogo
-                </button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="frutas.html" target="_blank">Frutas</a>
-                    <a href="verduras.html" target="_blank">Verduras</a>
-                    <a href="exoticas.html" target="_blank">Orgánicas y exóticas</a>
-                </div>
+      <nav class="navigation_horizontal">
+        <ul>
+          <li><a href="#seccion-noticias">Noticias</a></li>
+          <li><a href="#seccion-equipo">Integrantes</a></li>
+          <li><a href="#seccion-footer">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- FIN container-->
+  </header>
+
+  <main>
+    <!-- Seccion Noticias - Desarrollada por Maria Carla Paez -->
+    <section class="seccion-noticias" id="seccion-noticias">
+      <section class="seccion_noticias_texto">
+        <h2>Ofertas de Temporada</h2>
+        <p>
+          En nuestra pagina les recordamos siempre revisar nuestro calendario de
+          frutas de temporada, ya que podran obtener el mayor beneficio al mejor
+          precio que nuestra tienda tiene para ofrecerles. Ya nos encontramos en
+          el mes de septiembre y te invitamos a revisar nuestras variedades en
+          <a href="noticia.html" target="_blank"> acelgas </a>,
+          <a href="noticia.html" target="_blank"> champiñones </a>,
+          <a href="noticia.html" target="_blank"> melocotones </a> ,
+          <a href="noticia.html" target="_blank"> pitaya </a>. 
+        </p>
+        <h2>Información nutricional</h2>
+        <p>
+          ¡Clikea en las imagenes para que te informes de los valores
+          nutricionales de nuestros productos en oferta! <br /><br />
+        </p>
+      </section>
+
+
+
+      <section class="carrusel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/noticias/Noticia1.png" class="d-block w-100" alt="..." />
+
+              <div class="carousel-caption d-none d-md-block">
+                <h2>Ofertas</h2>
+                <p>Frutas de nuestro campo colombiano</p>
+              </div>
             </div>
 
-            <nav class="navigation_horizontal">
-                <ul>
-                    <li><a href="#seccion-noticias">Noticias</a></li>
-                    <li><a href="#seccion-equipo">Integrantes</a></li>
-                    <li><a href="#seccion-footer">Contacto</a></li>
-                </ul>
-            </nav>
+            <div class="carousel-item">
+              <img src="images/noticias/noticia2.png" class="d-block w-100" alt="..." />
+
+              <div class="carousel-caption d-none d-md-block">
+                <h2>Ofertas</h2>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/noticias/noticia3.png" class="d-block w-100" alt="..." />
+
+              <div class="carousel-caption d-none d-md-block">
+                <h2>Ofertas</h2>
+                <p>Ofertas de nuestro campo colombiano.</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <!-- FIN container-->
-    </header>
+      </section>
+      
 
-    <main>
-        <!-- Seccion Noticias - Desarrollada por Maria Carla Paez -->
-        <section class="seccion-noticias" id="seccion-noticias">
-            <section class="carrusel">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                    </div>
+    </section>
 
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="images/noticias/Noticia1.png" class="d-block w-100" alt="..." />
+    <!-- Seccion Equipo - Desarrollada por Santiago Gordillo -->
+    <h2 class="seccion-articulos_titulo" >SECCIÓN SERVICIOS</h2>
+    <section class="seccion-articulos">
+      <article class="frutas">
+        <h2 class="frutas_titulo">FRUTAS</h2>
+        <img class="frutas_imagen" src="images/frutas.jpg" alt="Frutas colombianas" />
+        <p class="frutas_descripcion">
+          Clic aquí para encontrar las mejores y todas las<br />
+          <a href="frutas.html" target="_blank">Frutas de nuestro campo colombiano
+          </a>
+        </p>
+      </article>
 
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2>Ofertas</h2>
-                                <p>Frutas de nuestro campo colombiano</p>
-                            </div>
-                        </div>
+      <article class="verduras">
+        <h2 class="verduras_titulo">VERDURAS</h2>
+        <img class="verduras_imagen" src="images/verduras.jpg" alt="Verduras colombianas" />
+        <p class="verduras_descripcion">
+          Clic aquí para encontrar las mejores y todas las<br />
+          <a href="verduras.html" target="_blank">Verduras de nuestro campo Colombiano
+          </a>
+        </p>
+      </article>
 
-                        <div class="carousel-item">
-                            <img src="images/noticias/noticia2.png" class="d-block w-100" alt="..." />
+      <article class="otros">
+        <h2 class="otros_titulo">EXÓTICOS - ORGÁNICOS</h2>
+        <img class="otros_imagen" src="images/exoticas.jpg" alt="exoticos colombianas" />
+        <p class="otros_descripcion">
+          Clic aquí para encontrar las mejores <br />
+          <a href="exoticas.html" target="_blank">Frutas y verduras exóticas y/o orgánicas
+          </a>
+        </p>
+      </article>
+    </section>
 
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2>Ofertas</h2>
-                            </div>
-                        </div>
+    <!-- Seccion Equipo - Desarrollada por David Fonseca -->
+    <section class=" seccion-equipo" id="seccion-equipo">
+        <!-- Titulo de Seccion - Equipo -->
+        <div>
+            <h2 class="seccion-equipo_title">Nuestro Equipo</h2>
+        </div>
 
-                        <div class="carousel-item">
-                            <img src="images/noticias/Noticia3.png" class="d-block w-100" alt="..." />
-
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2>Ofertas</h2>
-                                <p>Ofertas de nuestro campo colombiano.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-
-                <section class="container">
-                    <h1>Ofertas de Temporada</h1>
-                    <p>
-                        En nuestra pagina les recordamos siempre revisar nuestro calendario de
-                        frutas de temporada, ya que podran obtener el mayor beneficio al mejor
-                        precio que nuestra tienda tiene para ofrecerles. Ya nos encontramos en
-                        el mes de septiembre y te invitamos a revisar nuestras variedades en
-                        <a href="noticia.html" target="_blank"> acelgas </a>,
-                        <a href="noticia.html" target="_blank"> champiñones </a>,
-                        <a href="noticia.html" target="_blank"> melocotones </a> ,
-                        <a href="noticia.html" target="_blank"> pitaya </a>. <br /><br />
+        <!-- Seccion de tarjetas - Equipo -->
+        <div class="row justify-content-center seccion-equipo_body">
+            <!-- Tarjeta 1 -->
+            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
+                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/Alfonso_Gallegos.jpg')"></div>
+                <div class="row miembro-equipo_body">
+                    <h3 class="miembro-equipo_title">Alfonso Gallegos</h3>
+                    <p class="miembro-equipo_par">
+                        <b>Product owner</b> - Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit.
                     </p>
-                    <h2>Información nutricional</h2>
-                    <p>
-                        ¡Clikea en las imagenes para que te informes de los valores
-                        nutricionales de nuestros productos en oferta!
+                </div>
+            </article>
+
+            <!-- Tarjeta 2 -->
+            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
+                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/Daniel_Gordillo.jpg')"></div>
+                <div class="row miembro-equipo_body">
+                    <h3 class="miembro-equipo_title">Daniel Gordillo</h3>
+                    <p class="miembro-equipo_par">
+                        <b>Scrum Master</b>- Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit.
                     </p>
-                </section>
-            </section>
-        </section>
-
-        <!-- Seccion Equipo - Desarrollada por Santiago Gordillo -->
-        <section class="seccion-articulos">
-            <article class="frutas">
-                <h2 class="frutas_titulo">FRUTAS</h2>
-                <img class="frutas_imagen" src="images/frutas.jpg" alt="Frutas colombianas" />
-                <p class="frutas_descripcion">
-                    Clic aquí para encontrar las mejores y todas las<br />
-                    <a href="frutas.html" target="_blank">Frutas de nuestro campo colombiano
-                    </a>
-                </p>
+                </div>
             </article>
 
-            <article class="verduras">
-                <h2 class="verduras_titulo">VERDURAS</h2>
-                <img class="verduras_imagen" src="images/verduras.jpg" alt="Verduras colombianas" />
-                <p class="verduras_descripcion">
-                    Clic aquí para encontrar las mejores y todas las<br />
-                    <a href="verduras.html" target="_blank">Verduras de nuestro campo Colombiano
-                    </a>
-                </p>
+            <!-- Tarjeta 3 -->
+            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
+                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/David_Fonseca.jpg')"></div>
+                <div class="row miembro-equipo_body">
+                    <h3 class="miembro-equipo_title">David Fonseca</h3>
+                    <p class="miembro-equipo_par">
+                        <b>Dev Team</b> - Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit.
+                    </p>
+                </div>
             </article>
 
-            <article class="otros">
-                <h2 class="otros_titulo">EXÓTICOS - ORGÁNICOS</h2>
-                <img class="otros_imagen" src="images/exoticas.jpg" alt="exoticos colombianas" />
-                <p class="otros_descripcion">
-                    Clic aquí para encontrar las mejores <br />
-                    <a href="exoticas.html" target="_blank">Frutas y verduras exóticas y/o orgánicas
-                    </a>
-                </p>
+            <!-- Tarjeta 4 -->
+            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
+                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/David_Arias.jpg')"></div>
+                <div class="row miembro-equipo_body">
+                    <h3 class="miembro-equipo_title">David Arias</h3>
+                    <p class="miembro-equipo_par">
+                        <b>Dev Team</b> - LLorem ipsum dolor sit amet consectetur,
+                        adipisicing elit.
+                    </p>
+                </div>
             </article>
-        </section>
 
-        <!-- Seccion Equipo - Desarrollada por David Fonseca -->
-        <section class=" seccion-equipo" id="seccion-equipo">
-            <!-- Titulo de Seccion - Equipo -->
-            <div>
-                <h2 class="seccion-equipo_title">Nuestro Equipo</h2>
-            </div>
-
-            <!-- Seccion de tarjetas - Equipo -->
-            <div class="row justify-content-center seccion-equipo_body">
-                <!-- Tarjeta 1 -->
-                <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                    <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/Alfonso_Gallegos.jpg')"></div>
-                    <div class="row miembro-equipo_body">
-                        <h3 class="miembro-equipo_title">Alfonso Gallegos</h3>
-                        <p class="miembro-equipo_par">
-                            <b>Product owner</b> - Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 2 -->
-                <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                    <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/Daniel_Gordillo.jpg')"></div>
-                    <div class="row miembro-equipo_body">
-                        <h3 class="miembro-equipo_title">Daniel Gordillo</h3>
-                        <p class="miembro-equipo_par">
-                            <b>Scrum Master</b>- Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 3 -->
-                <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                    <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/David_Fonseca.jpg')"></div>
-                    <div class="row miembro-equipo_body">
-                        <h3 class="miembro-equipo_title">David Fonseca</h3>
-                        <p class="miembro-equipo_par">
-                            <b>Dev Team</b> - Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 4 -->
-                <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                    <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/David_Arias.jpg')"></div>
-                    <div class="row miembro-equipo_body">
-                        <h3 class="miembro-equipo_title">David Arias</h3>
-                        <p class="miembro-equipo_par">
-                            <b>Dev Team</b> - LLorem ipsum dolor sit amet consectetur,
-                            adipisicing elit.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Tarjeta 5 -->
-                <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                    <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/miembro.jpg')"></div>
-                    <div class="row miembro-equipo_body">
-                        <h3 class="miembro-equipo_title">Maria Paez</h3>
-                        <p class="miembro-equipo_par">
-                            <b>Dev Team</b> - Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit.
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <!-- Seccion Equipo - Desarrollada por David Arias -->
-    <footer id="seccion-footer">
-        <div class="contenedor">
-            <img src="images/pie_de_pagina.jpg" alt="pie de página">
-
-            <div class="izquierda">
-                <p>
-                    Motivante del desarrollo.
-                </p>
-                <p>
-                    <a href=”https://github.com/P61-Coders/DesarrolloSoftware-P61Coders.git”
-                        style="color:#FFF633;">Github del desarrollo</a>
-                </p>
-            </div>
-
-            <div class="derecha">
-                Desarrollado por:
-                <p>
-                    Alfonso Gallegos (Dev+PO)
-                    <a href=”mailto:alfonsogallegost@gmail.com” style="color:#FFF633;">alfonsogallegost@gmail.com</a>
-                </p>
-                <p>
-                    David Fonseca (Dev)
-                    <a href=”mailto:davidfonsecagaona@gmail.com” style="color:#FFF633;">davidfonsecagaona@gmail.com</a>
-                </p>
-                <p>
-                    Maria Paez (Dev)
-                    <a href=”mailto:naoku89@gmail.com” style="color:#FFF633;">naoku89@gmail.com</a>
-                </p>
-                <p>
-                    David Arias (Dev)
-                    <a href=”mailto:dvaid.iq@gmail.com” style="color:#FFF633;">dvaid.iq@gmail.com</a>
-                </p>
-                <p>
-                    Santiago Gordillo (Dev)
-                    <a href=”mailto:dsgordillom@gmail.com” style="color:#FFF633;">dsgordillom@gmail.com</a>
-                </p>
-                Contacto:
-                Cra 45 A # 13-75, Bogotá. Teléfono: +(57)6017819568/3004589624
-            </div>
-
+            <!-- Tarjeta 5 -->
+            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
+                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/miembro.jpg')"></div>
+                <div class="row miembro-equipo_body">
+                    <h3 class="miembro-equipo_title">Maria Paez</h3>
+                    <p class="miembro-equipo_par">
+                        <b>Dev Team</b> - Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit.
+                    </p>
+                </div>
+            </article>
         </div>
-    </footer>
+    </section>
+  </main>
 
-    <!-- JavaScript -->
-    <script src="js/header/header.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
-        integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
-        crossorigin="anonymous"></script>
+  <!-- Seccion Equipo - Desarrollada por David Arias -->
+  <footer id="seccion-footer">
+    <div class="contenedor">
+      <img src="images/pie_de_pagina.jpg" alt="pie de página">
+
+      <div class="izquierda">
+        <p>
+          Motivante del desarrollo.
+        </p>
+        <p>
+          <a href=”https://github.com/P61-Coders/DesarrolloSoftware-P61Coders.git” style="color:#FFF633;">Github del
+            desarrollo</a>
+        </p>
+      </div>
+
+      <div class="derecha">
+        Desarrollado por:
+        <p>
+          Alfonso Gallegos (Dev+PO)
+          <a href=”mailto:alfonsogallegost@gmail.com” style="color:#FFF633;">alfonsogallegost@gmail.com</a>
+        </p>
+        <p>
+          David Fonseca (Dev)
+          <a href=”mailto:davidfonsecagaona@gmail.com” style="color:#FFF633;">davidfonsecagaona@gmail.com</a>
+        </p>
+        <p>
+          Maria Paez (Dev)
+          <a href=”mailto:naoku89@gmail.com” style="color:#FFF633;">naoku89@gmail.com</a>
+        </p>
+        <p>
+          David Arias (Dev)
+          <a href=”mailto:dvaid.iq@gmail.com” style="color:#FFF633;">dvaid.iq@gmail.com</a>
+        </p>
+        <p>
+          Santiago Gordillo (Dev)
+          <a href=”mailto:dsgordillom@gmail.com” style="color:#FFF633;">dsgordillom@gmail.com</a>
+        </p>
+        Contacto:
+        Cra 45 A # 13-75, Bogotá. Teléfono: +(57)6017819568/3004589624
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/header/header.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+      integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+      crossorigin="anonymous"></script>
 </body>
-
 </html>
