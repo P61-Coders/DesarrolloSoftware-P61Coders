@@ -29,7 +29,7 @@
 </head>
 
 <body>
-  <!-- Seccion Noticias - Desarrollada por Alfonso Gallegos -->
+  <!-- Seccion Header - Desarrollada por Alfonso Gallegos -->
   <header class="header">
     <div class="buscar_productos">
       <form class="d-flex">
@@ -161,7 +161,7 @@
 
     </section>
 
-    <!-- Seccion Equipo - Desarrollada por Santiago Gordillo -->
+    <!-- Seccion Servicios - Desarrollada por Santiago Gordillo -->
     <h2 class="seccion-articulos_titulo" >SECCIÓN SERVICIOS</h2>
     <section class="seccion-articulos">
       <article class="frutas">
@@ -197,77 +197,35 @@
 
     <!-- Seccion Equipo - Desarrollada por David Fonseca -->
     <section class=" seccion-equipo" id="seccion-equipo">
-        <!-- Titulo de Seccion - Equipo -->
-        <div>
-            <h2 class="seccion-equipo_title">Nuestro Equipo</h2>
-        </div>
+      <!-- Titulo de Seccion - Equipo -->
+      <div>
+          <h2 class="seccion-equipo_title">Nuestro Equipo</h2>
+      </div>
 
-        <!-- Seccion de tarjetas - Equipo -->
-        <div class="row justify-content-center seccion-equipo_body">
-            <!-- Tarjeta 1 -->
-            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/Alfonso_Gallegos.jpg')"></div>
-                <div class="row miembro-equipo_body">
-                    <h3 class="miembro-equipo_title">Alfonso Gallegos</h3>
-                    <p class="miembro-equipo_par">
-                        <b>Product owner</b> - Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Tarjeta 2 -->
-            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/Daniel_Gordillo.jpg')"></div>
-                <div class="row miembro-equipo_body">
-                    <h3 class="miembro-equipo_title">Daniel Gordillo</h3>
-                    <p class="miembro-equipo_par">
-                        <b>Scrum Master</b>- Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Tarjeta 3 -->
-            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/David_Fonseca.jpg')"></div>
-                <div class="row miembro-equipo_body">
-                    <h3 class="miembro-equipo_title">David Fonseca</h3>
-                    <p class="miembro-equipo_par">
-                        <b>Dev Team</b> - Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Tarjeta 4 -->
-            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/David_Arias.jpg')"></div>
-                <div class="row miembro-equipo_body">
-                    <h3 class="miembro-equipo_title">David Arias</h3>
-                    <p class="miembro-equipo_par">
-                        <b>Dev Team</b> - LLorem ipsum dolor sit amet consectetur,
-                        adipisicing elit.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Tarjeta 5 -->
-            <article class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo">
-                <div class="row miembro-equipo_img" style="background-image: url('../images/equipo/miembro.jpg')"></div>
-                <div class="row miembro-equipo_body">
-                    <h3 class="miembro-equipo_title">Maria Paez</h3>
-                    <p class="miembro-equipo_par">
-                        <b>Dev Team</b> - Lorem ipsum dolor sit amet consectetur,
-                        adipisicing elit.
-                    </p>
-                </div>
-            </article>
-        </div>
-    </section>
+      <!-- Seccion de tarjetas - Equipo -->
+      <div id="app-seccion-equipo" class="row justify-content-center seccion-equipo_body">
+          <!-- Tarjeta -->
+          <article 
+          class="col-10 col-sm-5 col-xl-2 tarjeta-miembro-equipo"
+          v-for="member in members">
+              <div 
+                  class="row miembro-equipo_img" 
+                  :key="member.memberId"
+                  :style="{ backgroundImage: member.memberImage }">
+              </div>
+              <div class="row miembro-equipo_body">
+                  <h3 class="miembro-equipo_title">{{ member.memberName }}</h3>
+                  <p class="miembro-equipo_par">
+                      <b>{{ member.memberTitle }}</b>
+                      {{ member.memberDetails }}
+                  </p>
+              </div>
+          </article>
+      </div>
+  </section>
   </main>
 
-  <!-- Seccion Equipo - Desarrollada por David Arias -->
+  <!-- Seccion Footer - Desarrollada por David Arias -->
   <footer id="seccion-footer">
     <div class="contenedor">
       <img src="images/pie_de_pagina.jpg" alt="pie de página">
@@ -313,6 +271,7 @@
 
   <!-- JavaScript -->
   <script src="js/header/header.js"></script>
+  <script src="js/equipo/app_equipo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
       integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
       crossorigin="anonymous"></script>
