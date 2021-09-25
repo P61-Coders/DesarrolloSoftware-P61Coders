@@ -33,7 +33,7 @@ var appSeccionEquipo = new Vue({
             {
                 memberId: 61-1-5,
                 memberTitle: 'Dev Team',
-                memberImage: 'url('+'../images/equipo/miembro.jpg'+')',
+                memberImage: 'url('+'../images/equipo/Maria_Paez.jpg'+')',
                 memberName: 'Maria Paez',
                 memberDetails: ' - Lorem ipsum dolor sit amet consectetur, adipisicing elit.'
             }
