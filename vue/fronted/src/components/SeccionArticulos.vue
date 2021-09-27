@@ -1,13 +1,14 @@
 <template>
     <v-container>
         <h2 class="seccion-articulos_titulo" >SECCIÓN SERVICIOS</h2>
+
         <section class= "seccion-articulos">
         <article class="frutas">
         <h2 class="frutas_titulo">{{servicio1.nombre}}</h2>
         <img class= "frutas_imagen" v-bind:src="servicio1.imagen" alt="Frutas colombianas">
         <p class="frutas_descripcion">
-          Clic aquí para encontrar las mejores y todas las<br>
-          <a href="frutas.html" target = "_blank" >Frutas de nuestro campo colombiano </a>   
+          Clic aquí para encontrar las mejores y todas las <br> frutas de nuestro campo colombiano
+        <v-btn color="primary" small v-on:click="irFrutas()" > IR  </v-btn>   
         </p>
         </article>
 
@@ -15,8 +16,8 @@
         <h2 class="verduras_titulo">{{servicio2.nombre}}</h2>
         <img class= "verduras_imagen" v-bind:src="servicio2.imagen" alt="Verduras colombianas">
         <p class="verduras_descripcion">
-          Clic aquí para encontrar las mejores y todas las<br>
-          <a href="verduras.html" target = "_blank" >Verduras de nuestro campo Colombiano </a>
+          Clic aquí para encontrar las mejores y todas las <br> verduras de nuestro campo colombiano
+        <v-btn color="primary" small v-on:click="irVerduras()" > IR  </v-btn>   
         </p>
       </article>
 
@@ -24,9 +25,8 @@
         <h2 class="otros_titulo">{{servicio3.nombre}}</h2>
         <img class= "otros_imagen" v-bind:src="servicio3.imagen" alt="exoticos colombianas">
         <p class="otros_descripcion">
-          Clic aquí para encontrar las mejores <br>
-          <a href="exoticas.html" target = "_blank" >Frutas y verduras exóticas y/o orgánicas  </a>
-          
+          Clic aquí para encontrar las mejores <br> frutas y verduras orgánicas y/o exóticas
+        <v-btn color="primary" small v-on:click="irExoticas()" > IR  </v-btn>  
         </p>
       </article>
         </section>
@@ -45,6 +45,18 @@ export default {
         {nombre:"Exóticos",imagen:"images/exoticas.jpg"}
     
   }),
+
+    methods: {
+        irFrutas(){
+            this.$router.push("/frutas")
+        },
+        irVerduras(){
+            this.$router.push("/verduras")
+        },
+        irExoticas(){
+            this.$router.push("/exoticas")
+        },
+    }
 
 
 }
