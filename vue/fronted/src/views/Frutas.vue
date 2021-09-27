@@ -38,20 +38,20 @@ export default {
             nombre:"Sandia",
             precio:3000
         },{
-            imagen:"images/frutas/lulo.jpg",
+            imagen:"/images/frutas/lulo.jpg",
             nombre:"Lulo",
             precio:1500
         },
         {
-            imagen:"images/frutas/gulupa.jpg",
+            imagen:"/images/frutas/gulupa.jpg",
             nombre:"Gulupa",
             precio:2000
         },{
-            imagen:"images/frutas/sandia.jpg",
+            imagen:"/images/frutas/sandia.jpg",
             nombre:"Sandia",
             precio:3000
         },{
-            imagen:"images/frutas/lulo.jpg",
+            imagen:"/images/frutas/lulo.jpg",
             nombre:"Lulo",
             precio:1500
         }]

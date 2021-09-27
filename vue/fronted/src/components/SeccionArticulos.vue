@@ -5,7 +5,7 @@
         <section class= "seccion-articulos">
         <article class="frutas">
         <h2 class="frutas_titulo">{{servicio1.nombre}}</h2>
-        <img class= "frutas_imagen" v-bind:src="servicio1.imagen" alt="Frutas colombianas">
+        <img class= "frutas_imagen" src="@/assets/images/frutas.jpg" alt="Frutas colombianas">
         <p class="frutas_descripcion">
           Clic aquí para encontrar las mejores y todas las <br> frutas de nuestro campo colombiano
         <v-btn color="primary" small v-on:click="irFrutas()" > IR  </v-btn>   
@@ -14,7 +14,7 @@
 
         <article class="verduras">
         <h2 class="verduras_titulo">{{servicio2.nombre}}</h2>
-        <img class= "verduras_imagen" v-bind:src="servicio2.imagen" alt="Verduras colombianas">
+        <img class= "verduras_imagen" src="@/assets/images/verduras.jpg" alt="Verduras colombianas">
         <p class="verduras_descripcion">
           Clic aquí para encontrar las mejores y todas las <br> verduras de nuestro campo colombiano
         <v-btn color="primary" small v-on:click="irVerduras()" > IR  </v-btn>   
@@ -23,7 +23,7 @@
 
       <article class="otros">
         <h2 class="otros_titulo">{{servicio3.nombre}}</h2>
-        <img class= "otros_imagen" v-bind:src="servicio3.imagen" alt="exoticos colombianas">
+        <img class= "otros_imagen" src="@/assets/images/exoticas.jpg" alt="exoticos colombianas">
         <p class="otros_descripcion">
           Clic aquí para encontrar las mejores <br> frutas y verduras orgánicas y/o exóticas
         <v-btn color="primary" small v-on:click="irExoticas()" > IR  </v-btn>  
@@ -36,13 +36,14 @@
 
 <script>
 export default {
+    name: 'SeccionArticulos',
     data: () => ({
         servicio1:
-        {nombre:"Frutas",imagen:"images/frutas.jpg"},
+        {nombre:"Frutas"},
         servicio2:
-        {nombre:"Verduras",imagen:"images/verduras.jpg"},
+        {nombre:"Verduras"},
         servicio3: 
-        {nombre:"Exóticos",imagen:"images/exoticas.jpg"}
+        {nombre:"Exóticos"}
     
   }),
 

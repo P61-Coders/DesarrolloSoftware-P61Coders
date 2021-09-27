@@ -31,15 +31,15 @@
 export default {
     data: () => ({
         exoticas:[{
-            imagen:"images/exoticas/pitaya.jpg",
+            imagen:"/images/exoticas/pitaya.jpg",
             nombre:"Pitaya",
             precio:3000
         },{
-            imagen:"images/exoticas/uchuva.jpg",
+            imagen:"/images/exoticas/uchuva.jpg",
             nombre:"Uchuva",
             precio:4000
         },{
-            imagen:"images/exoticas/borojo.jpg",
+            imagen:"/images/exoticas/borojo.jpg",
             nombre:"Borojo",
             precio:3500
         },
