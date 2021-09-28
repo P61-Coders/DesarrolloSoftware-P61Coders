@@ -28,15 +28,15 @@
 export default {
     data: () => ({
         verduras:[{
-            imagen:"/images/verduras/aguatecate.jpg",
+            imagen:require("../assets/images/verduras/aguatecate.jpg"),
             nombre:"Aguacate",
             precio:2000
         },{
-            imagen:"/images/verduras/zanahoria.jpg",
+            imagen:require("../assets/images/verduras/zanahoria.jpg"),
             nombre:"Zanahoria",
             precio:3000
         },{
-            imagen:"/images/verduras/tomate.jpg",
+            imagen:require("../assets/images/verduras/tomate.jpg"),
             nombre:"Tomate",
             precio:1500
         },

@@ -10,58 +10,68 @@
     </p>
 
     <section class= "seccion-articulos">
-      <article v-for="(item, index) in frutas" v-bind:key="index" class="seccion_frutas">
+      <article v-for="(item, index) in frutas" v-bind:key="index"  class="seccion_frutas">
         <div class="fruta">
           <img class= "fruta_imagen" v-bind:src="item.imagen" alt="Frutas colombianas">
           <h3 class="fruta_nombre">{{item.nombre}}</h3>
           <h3 class="fruta_precio" > {{item.precio}} COP X Kilo</h3>
-          <v-btn small color="primary" class="fruta_botoncompra">Añadir al carrito</v-btn>
+          <v-btn small color="primary" @click="agregarProductos(index)" class="fruta_botoncompra">Añadir al carrito</v-btn>
         </div>
 
       </article>
 
-      
     </section>
+    <v-btn small color="primary" @click="irCarrito()"  class="fruta_botoncompra">ver el carrito</v-btn>
+    
+    <carrito v-bind:compras="listaCompras"></carrito>
     
     </div>
 </template>
 
 <script>
+import Carrito from '../components/Carrito';
 export default {
+    
+    components: {
+      Carrito
+    },
     data: () => ({
         frutas:[{
-            imagen:"images/frutas/gulupa.jpg",
+            imagen:require('../assets/images/frutas/gulupa.jpg'),
             nombre:"Gulupa",
             precio:2000
         },{
-            imagen:"images/frutas/sandia.jpg",
+            imagen:require('../assets/images/frutas/sandia.jpg'),
             nombre:"Sandia",
             precio:3000
         },{
-            imagen:"/images/frutas/lulo.jpg",
+            imagen:require("@/assets/images/frutas/lulo.jpg"),
             nombre:"Lulo",
             precio:1500
         },
-        {
-            imagen:"/images/frutas/gulupa.jpg",
-            nombre:"Gulupa",
-            precio:2000
-        },{
-            imagen:"/images/frutas/sandia.jpg",
-            nombre:"Sandia",
-            precio:3000
-        },{
-            imagen:"/images/frutas/lulo.jpg",
-            nombre:"Lulo",
-            precio:1500
-        }]
-    
-  }),
+        ],
+        listaCompras:[]
+        
+    }
+    ),
   methods: {
       irHome(){
           this.$router.push("/")
+      },
+      irCarrito(){
+          this.$router.push('/carrito')
+      },
+      agregarProductos(index){
+          this.listaCompras.push(this.frutas[index].nombre)
+
       }
+
+
+    
+    
+    
     }
+
 
 
 }

@@ -63,7 +63,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
     .seccion-articulos_titulo{
     border: 1px solid black;
     background-color: rgb(255, 225, 0);
