@@ -15,17 +15,22 @@
           <img class= "verdura_imagen" v-bind:src="item.imagen" alt="Verduras colombianas">
           <h3 class="verdura_nombre">{{item.nombre}}</h3>
           <h3 class="verdura_precio" >{{item.precio}} COP X Kilo</h3>
-          <v-btn small color="primary" class="verdura_botoncompra">Añadir al carrito</v-btn>
+          <v-btn small color="primary" class="verdura_botoncompra" @click="agregarProductos(index)"> Añadir al carrito</v-btn>
         </div>
         
-        
       </article>
+
     </section>
+    <v-btn small color="primary" @click="irCarrito()"  class="verdura_botoncompra">ver el carrito</v-btn>
     </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
+    computed:{
+        ...mapState(['listaCompras'])
+    },
     data: () => ({
         verduras:[{
             imagen:require("../assets/images/verduras/aguatecate.jpg"),
@@ -42,13 +47,18 @@ export default {
         },
         ]
     
-  }),
+    }),
   methods: {
       irHome(){
           this.$router.push("/")
+      },
+      irCarrito(){
+          this.$router.push('/carrito')
+      },
+      agregarProductos(index){
+          this.listaCompras.push(this.verduras[index].nombre)
       }
-    }
-
+   }
 
 }
 </script>

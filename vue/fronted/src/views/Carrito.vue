@@ -1,18 +1,18 @@
 <template>
-   
+  <div class="text-center container ">
   <v-card
     class="mx-auto"
     max-width="300"
     tile
   >
     <v-list rounded>
-      <v-subheader>REPORTS </v-subheader>
+      <v-subheader >REPORTS CARRITO DE COMPRAS </v-subheader>
       <v-list-item-group
         v-model="selectedItem"
         color="primary"
       >
         <v-list-item
-          v-for="(item, i) in compras"
+          v-for="(item, i) in listaCompras"
           :key="i"
         >
           <v-list-item-icon>
@@ -24,18 +24,18 @@
         </v-list-item>
       </v-list-item-group>
     </v-list>
-
   </v-card>
+  <v-btn color="primary" small  @click="irHome()"> Ir pagina principal </v-btn>
+  </div >
 </template>
 
 <script>
-//   import{mapState} from "vuex";
+import{mapState} from "vuex";
   export default {
-    props: ["compras"],
 
-    // computed:{
-    //     ...mapState(['listaCompra'])
-    // },
+    computed:{
+    ...mapState(['listaCompras'])
+    },
     data: () => ({
       
 
@@ -46,6 +46,14 @@
         { text: 'Conversions', icon: 'mdi-flag' },
       ],
     }),
+
+    methods: {
+      irHome(){
+          this.$router.push("/")
+      },
+    }
+
+
   }
 </script>
 

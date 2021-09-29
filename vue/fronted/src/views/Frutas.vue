@@ -23,18 +23,19 @@
     </section>
     <v-btn small color="primary" @click="irCarrito()"  class="fruta_botoncompra">ver el carrito</v-btn>
     
-    <carrito v-bind:compras="listaCompras"></carrito>
+    
     
     </div>
 </template>
 
 <script>
-import Carrito from '../components/Carrito';
+import {mapState} from 'vuex';
+
 export default {
-    
-    components: {
-      Carrito
+    computed:{
+        ...mapState(['listaCompras'])
     },
+    
     data: () => ({
         frutas:[{
             imagen:require('../assets/images/frutas/gulupa.jpg'),
@@ -50,8 +51,7 @@ export default {
             precio:1500
         },
         ],
-        listaCompras:[]
-        
+       
     }
     ),
   methods: {

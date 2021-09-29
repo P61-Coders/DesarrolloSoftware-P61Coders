@@ -16,19 +16,21 @@
           <img class= "exotica_imagen" v-bind:src="item.imagen" alt="exoticas colombianas">
           <h3 class="exotica_nombre">{{item.nombre}}</h3>
           <h3 class="exotica_precio" > {{item.precio}} COP X Kilo</h3>
-          <v-btn small color="primary" class="exotica_botoncompra">Añadir al carrito</v-btn>
+          <v-btn small color="primary" class="exotica_botoncompra" @click="agregarProductos(index)" >Añadir al carrito</v-btn>
         </div>
 
-      </article>
-
-      
+      </article> 
     </section>
-    
+    <v-btn small color="primary" @click="irCarrito()"  class="exotica_botoncompra">ver el carrito</v-btn>
     </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
+    computed:{
+        ...mapState(['listaCompras'])
+    },
     data: () => ({
         exoticas:[{
             imagen:require("../assets/images/exoticas/pitaya.jpg"),
@@ -49,6 +51,13 @@ export default {
   methods: {
       irHome(){
           this.$router.push("/")
+      },
+      irCarrito(){
+          this.$router.push('/carrito')
+      },
+      agregarProductos(index){
+          this.listaCompras.push(this.exoticas[index].nombre)
+
       }
     }
 }
