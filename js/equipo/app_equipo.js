@@ -6,7 +6,7 @@ var appSeccionEquipo = new Vue({
     },
     methods: {
         loadMembers: async function (){
-            let url = './resources/data.json';
+            let url = '../resources/data.json';
             const responseText = await fetch(url, {method: 'GET'});
             const responseJson = await responseText.json();
             this.setMembers(responseJson);
