@@ -1,0 +1,151 @@
+<template>
+    <v-container>
+    <div class="contenedor2">
+            <img src="../assets/images/login/Login2.jpg" alt="Area de Logueo">
+    
+            <div class="caja1">
+                USUARIO
+            </div>
+            
+            <div class="caja2">
+                CONTRASEÑA
+            </div>
+
+            <div class="caja3">
+                Crear cuenta
+            </div>
+
+            <div class="caja4">
+                Recordar
+            </div>
+
+            <div class="caja5">
+                ¿Olvidó su clave?
+            </div>
+
+            <div>
+                <a class="boton" href="http://Login.com" target="_blank">Login</a>
+            </div>
+
+        </div>
+    </v-container>
+</template>
+
+<style >
+    .contenedor{
+    background:rgba(0,0,0,0.8);
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.contenedor::before{
+    content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.3);
+}
+.contenedor2{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.izquierda{
+    color:white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.derecha{
+    color:antiquewhite;
+    position: absolute;
+    top: 5%;
+    left: 65%;
+    font-weight: bold;
+    font-size:85%;
+}
+
+.caja1 {
+    position: absolute;
+    border: 3px solid #fdf901; /*anchura, estilo y color borde*/
+    padding: 2px; /*espacio alrededor texto*/
+    width: 60mm;
+    top: 47.6%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-family: Roboto; 
+    font-size: 18px;
+    font-weight: 400; 
+    color: #cfaaaae3;
+    
+}
+
+.caja2 {
+    position: absolute;
+    border: 3px solid #fdf901; /*anchura, estilo y color borde*/
+    padding: 2px; /*espacio alrededor texto*/
+    width: 60mm;
+    top: 53.2%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-family: Roboto; 
+    font-size: 18px; 
+    font-weight: 400; 
+    color: #cfaaaae3;
+    
+}
+
+.boton {
+    position: absolute;
+    border: 1px solid #2e518b; /*anchura, estilo y color borde*/
+    padding: 5px; /*espacio alrededor texto*/
+    background-color: #e60b0b; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Fredoka One', sans-serif; /*tipografía texto*/
+    font-weight: bold;
+    border-radius: 0px; /*bordes redondos 50*/
+    top: 62%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+}
+
+.caja3{
+    position: absolute;
+    font-family: 'Roboto Medium', sans-serif; /*tipografía texto*/
+    color:rgba(15, 150, 22, 0.842);
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 0px; /*bordes redondos 50*/
+    top: 68%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+}
+.caja4{
+    position: absolute;
+    font-family: 'Roboto Medium', sans-serif; /*tipografía texto*/
+    color:rgba(8, 8, 8, 0.842);
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0px; /*bordes redondos 50*/
+    top: 56%;
+    left: 42%;
+}
+.caja5{
+    position: absolute;
+    font-family: 'Roboto Medium', sans-serif; /*tipografía texto*/
+    color:rgba(15, 150, 22, 0.842);
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0px; /*bordes redondos 50*/
+    top: 56%;
+    left: 52%;
+}
+</style>
