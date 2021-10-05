@@ -43,28 +43,29 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Exoticas.vue')
   },
   {
-  path: '/carrito',
+    path: '/carrito',
     name: 'Carrito',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Carrito.vue')
   },
+
   {
     path: '/login',
-      name: 'Login',
+    name: 'Login',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
     },
-    {
-      path: '/admin',
-      name: 'Admin',
     
-      component: () => import(/* webpackChunkName: "about" */ '../views/Admin.vue'),
-      meta:{requiresAuth:true },
-      children:[{
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Admin.vue'),
+    meta:{requiresAuth:true },
+    children:[{
         path: 'usuario', //pendiente aca con el nombre
         name: 'Usuario',
       },
@@ -77,7 +78,7 @@ const routes = [
         name: 'Categorias',
       }
       ]
-    }
+  }
   
 ]
 
