@@ -1,5 +1,5 @@
 <template >
-    <h1>gestor administrativo</h1>
+    <h1>Gestor Admin</h1>
 </template>
 
 <script>

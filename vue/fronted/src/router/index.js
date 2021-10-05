@@ -94,7 +94,8 @@ router.beforeEach((to, from, next) => {
     let token = decode(localStorage.getItem('token'));
     if (!token) {
       next({
-        name: 'Login',
+        path: '/login',
+        query: { redirect: to.fullPath }
         
       })
     } else {
