@@ -1,6 +1,9 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+
+
+  <div>
+    <!-- Seccion Carousel - Desarrollada por David Fonseca -->
+    <Header></Header>
 
     <!-- Seccion Equipo - Desarrollada por David Fonseca -->
     <section class="seccion-equipo">
@@ -18,51 +21,37 @@
         </div>
     </section>
   </div>
+
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-import MiembroEquipo from '@/components/MiembroEquipo.vue';
-import miembrosData from '@/assets/resources/data.json';
+  import HelloWorld from '../components/HelloWorld';
+  import MiembroEquipo from '../components/MiembroEquipo.vue';
+  import membersData from '../assets/resources/data.json';
+  import Header from '../components/Header.vue';
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld,
-    MiembroEquipo
-  },
-  data() {
-    return {
-        projectName: 'Nuestro Equipo',
-        group: 'Grupo 61',
-        members: miembrosData.members,
-    };
-  },
-  methods: {
-    setMembers: function () {
-        console.log(this.members);
-    }
-  },
-  computed: {
-    title() {
-      return this.projectName + " - " + this.group;
-    }
-  },
-  created() {
-    if(this.members){
-        this.setMembers();
-    }
-  },
-};
+  export default {
+    name: 'Home',
+    data() {
+      return {
+        title: 'Nuestro Equipo',
+        members: membersData.members,
+      }
+      },
+    components: {
+      HelloWorld,
+      MiembroEquipo,
+      Header,
+    },
+    methods: {
+
+    },
+
+
+  }
 </script>
 
 <style scoped>
-/* selectores */
-
-/* // X-Small devices (portrait phones, less than 576px)
-// No media query for `xs` since this is the default in Bootstrap */
-
 .seccion-equipo {
     margin-top: 100px;
     margin-bottom: 140px;
@@ -99,35 +88,4 @@ export default {
     border-radius: 15px;
     background-color: rgb(255, 255, 100);
 }
-
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 751px) {
-
-}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    
-}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    
-}
-
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    .tarjeta-miembro-equipo {
-        height: 430px;
-    }
-
-}
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-    .tarjeta-miembro-equipo {
-        height: 410px;
-    }
-}
-</style> 
+</style>
