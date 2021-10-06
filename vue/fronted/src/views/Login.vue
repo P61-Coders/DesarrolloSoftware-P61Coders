@@ -1,151 +1,117 @@
 <template>
-    <v-container>
-    <div class="contenedor2">
-            <img src="../assets/images/login/Login2.jpg" alt="Area de Logueo">
-    
-            <div class="caja1">
-                USUARIO
-            </div>
-            
-            <div class="caja2">
-                CONTRASEÑA
-            </div>
+  <v-container>  
+  <v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+  >
+    <v-text-field
+      v-model="correo"
+      :rules="emailRules"
+      label="E-mail"
+      required
+    ></v-text-field>
 
-            <div class="caja3">
-                Crear cuenta
-            </div>
+    <v-text-field
+            v-model="password"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]"
+            :type="show1 ? 'text' : 'password'"
+            name="input-10-1"
+            label="contraseña"
+            hint="At least 8 characters"
+            counter
+            @click:append="show1 = !show1"
+    ></v-text-field>
+    <p>{{message}}</p>
 
-            <div class="caja4">
-                Recordar
-            </div>
 
-            <div class="caja5">
-                ¿Olvidó su clave?
-            </div>
+    <v-btn
+      :disabled="!valid"
+      color="success"
+      class="mr-4"
+      @click="validate"
+    >
+      Validate
+    </v-btn>
 
-            <div>
-                <a class="boton" href="http://Login.com" target="_blank">Login</a>
-            </div>
+    <v-btn
+      color="error"
+      class="mr-4"
+      @click="reset"
+    >
+      Reset Form
+    </v-btn>
 
-        </div>
-    </v-container>
+  </v-form>
+  </v-container>  
 </template>
 
+<script>
+import axios from 'axios'
+  export default {
+    data: () => ({
+      message: "",
+      valid: true,
+      name: '',
+      correo: '',
+      password: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+
+        show1: false,
+        password: 'Password',
+        rules: {
+          required: value => !!value || 'Required.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          emailMatch: () => (`The email and password you entered don't match`),
+        },
+      
+      
+    }),
+
+    methods: {
+        //validaremos correo y contraseña, si todo es correcto lo manda a la view Admin
+      validate () {
+        axios.post('http://localhost:3000/api/usuario/login',{
+            correo: this.correo,
+            password: this.password
+        })
+        .then(response =>{
+            console.log(response.data);
+            return response.data
+        })
+        .then(data => {
+            localStorage.setItem('token',data.tokenreturn);
+            this.$router.push({name:'Admin'})
+
+        })
+        .catch( err =>{
+            this.message =null;
+            console.log(err.response);
+            if ([404,401].includes(err.response.status)) {
+                this.message = "el correo o contraseña son incorrectas"
+                console.log(this.message)
+            }else{
+                this.message = "ocurrio un error interno, intenta de nuevo en uno minutos"
+                console.log(this.message)
+            }
+            
+        })
+
+      },
+      reset () {
+        this.$refs.form.reset()
+      },
+      resetValidation () {
+        this.$refs.form.resetValidation()
+      },
+    },
+  }
+</script>
+
 <style >
-    .contenedor{
-    background:rgba(0,0,0,0.8);
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-.contenedor::before{
-    content:'';
-	position: absolute;
-    top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: rgba(0,0,0,0.3);
-}
-.contenedor2{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-
-.izquierda{
-    color:white;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-weight: bold;
-    font-size: x-large;
-}
-
-.derecha{
-    color:antiquewhite;
-    position: absolute;
-    top: 5%;
-    left: 65%;
-    font-weight: bold;
-    font-size:85%;
-}
-
-.caja1 {
-    position: absolute;
-    border: 3px solid #fdf901; /*anchura, estilo y color borde*/
-    padding: 2px; /*espacio alrededor texto*/
-    width: 60mm;
-    top: 47.6%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto; 
-    font-size: 18px;
-    font-weight: 400; 
-    color: #cfaaaae3;
-    
-}
-
-.caja2 {
-    position: absolute;
-    border: 3px solid #fdf901; /*anchura, estilo y color borde*/
-    padding: 2px; /*espacio alrededor texto*/
-    width: 60mm;
-    top: 53.2%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto; 
-    font-size: 18px; 
-    font-weight: 400; 
-    color: #cfaaaae3;
-    
-}
-
-.boton {
-    position: absolute;
-    border: 1px solid #2e518b; /*anchura, estilo y color borde*/
-    padding: 5px; /*espacio alrededor texto*/
-    background-color: #e60b0b; /*color botón*/
-    color: #ffffff; /*color texto*/
-    text-decoration: none; /*decoración texto*/
-    text-transform: uppercase; /*capitalización texto*/
-    font-family: 'Fredoka One', sans-serif; /*tipografía texto*/
-    font-weight: bold;
-    border-radius: 0px; /*bordes redondos 50*/
-    top: 62%;
-    left: 51%;
-    transform: translate(-50%, -50%);
-}
-
-.caja3{
-    position: absolute;
-    font-family: 'Roboto Medium', sans-serif; /*tipografía texto*/
-    color:rgba(15, 150, 22, 0.842);
-    font-weight: bold;
-    font-size: 22px;
-    border-radius: 0px; /*bordes redondos 50*/
-    top: 68%;
-    left: 51%;
-    transform: translate(-50%, -50%);
-}
-.caja4{
-    position: absolute;
-    font-family: 'Roboto Medium', sans-serif; /*tipografía texto*/
-    color:rgba(8, 8, 8, 0.842);
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 0px; /*bordes redondos 50*/
-    top: 56%;
-    left: 42%;
-}
-.caja5{
-    position: absolute;
-    font-family: 'Roboto Medium', sans-serif; /*tipografía texto*/
-    color:rgba(15, 150, 22, 0.842);
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 0px; /*bordes redondos 50*/
-    top: 56%;
-    left: 52%;
-}
+   
 </style>
