@@ -9,8 +9,9 @@
       shrink-on-scroll
       prominent
       src="@/assets/images/cintaFrutasArriba.jpg"
-      fade-img-on-scroll
-      scroll-target="#scrolling-techniques-3"
+      
+     
+      
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -49,34 +50,42 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab :to="{name:'GestorUsuarios'}">Usuarios</v-tab>
+          <v-tab :to="{name:'GestorUsuarios'}" >Usuarios</v-tab>
           <v-tab :to="{name:'GestorCategorias'}">Categorias</v-tab>
           <v-tab :to="{name:'GestorArticulos'}">Articulos</v-tab> 
           <v-tab :to="{name:'Home'}">Home</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
-
-    
+     
+     
     <v-sheet
       id="scrolling-techniques-3"
       class="overflow-y-auto"
       max-height="600"
-    >
+    >   
        
-      <v-container style="height: 1000px;">  -->
+      <v-main>
+           <router-view/>
+      </v-main>  
+           
+      <v-container style="height: 1000px;">  
+           <v-main>
+           <router-view/>
+            </v-main>
            
       </v-container>
-     
+      
+      
+      
     </v-sheet>
     
     
+   
 
   </v-card>
 
-  <v-main>
-      <router-view/>
- </v-main>
+  
 </v-app>
 </template>
 
