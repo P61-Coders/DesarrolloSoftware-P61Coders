@@ -1,5 +1,5 @@
 <template >
-    <v-container v-show="!['Admin'].includes($route.name)">
+    <v-container >
     <router-link :to="{name:'Login'
     }"> Login</router-link>
 

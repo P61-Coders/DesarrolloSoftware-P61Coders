@@ -1,7 +1,7 @@
 <template>
   <v-app>
     
-    <v-app-bar app>
+    <v-app-bar app  v-show="!['Admin','GestorUsuarios','GestorCategorias','GestorArticulos'].includes($route.name)" >
       <seccion-encabezado/>
     </v-app-bar>
     <v-main>

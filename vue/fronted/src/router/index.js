@@ -67,15 +67,17 @@ const routes = [
     meta:{requiresAuth:true },
     children:[{
         path: 'usuario', //pendiente aca con el nombre
-        name: 'Usuario',
+        name: 'GestorUsuarios',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GestorUsuarios.vue')
+        
       },
       {
         path: 'articulos', //pendiente aca con el nombre
-        name: 'Articulos',
+        name: 'GestorArticulos',
       },
       {
         path: 'categorias', //pendiente aca con el nombre
-        name: 'Categorias',
+        name: 'GestorCategorias',
       }
       ]
   }
@@ -92,7 +94,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
-    let token = decode(localStorage.getItem('token'));
+    let token = localStorage.getItem('token');
     if (!token) {
       next({
         path: '/login',
