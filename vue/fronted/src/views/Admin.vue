@@ -1,15 +1,15 @@
 
 <template>
-<v-app>
+ <v-app>
   <v-card class="overflow-hidden">
     <v-app-bar
-      absolute
       color="#6A76AB"
       dark
       shrink-on-scroll
       prominent
       src="@/assets/images/cintaFrutasArriba.jpg"
-      
+      fade-img-on-scroll
+      scroll-target="#scrolling-techniques-3"
      
       
     >
@@ -44,52 +44,37 @@
           dark
           left
         >
-           mdi-cancel
-        </v-icon>Cerrar sesión
+           mdi-logout
+        </v-icon>Logout
       </v-btn>
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab :to="{name:'GestorUsuarios'}" >Usuarios</v-tab>
+          <v-tab :to="{name:'GestorUsuarios'}" v-if="isAdmin" >Usuarios</v-tab>
           <v-tab :to="{name:'GestorCategorias'}">Categorias</v-tab>
           <v-tab :to="{name:'GestorArticulos'}">Articulos</v-tab> 
-          <v-tab :to="{name:'Home'}">Home</v-tab>
+          <v-tab exact :to="{name:'Home'}">Home</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
-     
-     
     <v-sheet
       id="scrolling-techniques-3"
       class="overflow-y-auto"
       max-height="600"
-    >   
-       
-      <v-main>
-           <router-view/>
-      </v-main>  
-           
-      <v-container style="height: 1000px;">  
-           <v-main>
-           <router-view/>
-            </v-main>
-           
-      </v-container>
-      
-      
-      
+    >
     </v-sheet>
+  </v-card> 
     
-    
-   
-
-  </v-card>
-
+  <v-main>
+      <router-view/>
+  </v-main>
+ </v-app>
   
-</v-app>
+
 </template>
 
 <script>
+import decode from 'jwt-decode'
 
 export default {
     name: 'Admin',
@@ -98,12 +83,19 @@ export default {
     }),
 
     methods: {
-        salir(){
-            localStorage.removeItem('token');
-            this.$router.push({
-                name:'Login'
+      salir(){
+        localStorage.removeItem('token');
+        this.$router.push({
+            name:'Login'
             })
-        }
+        },
+      isAdmin(){
+        let token= localStorage.getItem('token');
+        let decodificar = decode(token);
+        let rol = decodificar.rol;
+        return rol === 'Administrador'? true:false;
+
+      }
     }
 }
 </script>
