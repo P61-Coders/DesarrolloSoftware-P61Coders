@@ -51,8 +51,8 @@
       <template v-slot:extension>
         <v-tabs align-with-title>
           <v-tab :to="{name:'GestorUsuarios'}" v-if="isAdmin" >Usuarios</v-tab>
-          <v-tab :to="{name:'GestorCategorias'}">Categorias</v-tab>
-          <v-tab :to="{name:'GestorArticulos'}">Articulos</v-tab> 
+          <v-tab :to="{name:'GestorCategorias'}">Categorías</v-tab>
+          <v-tab :to="{name:'GestorArticulos'}">Artículos</v-tab> 
           <v-tab exact :to="{name:'Home'}">Home</v-tab>
         </v-tabs>
       </template>
