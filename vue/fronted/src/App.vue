@@ -1,12 +1,16 @@
 <template>
   <v-app>
     
-    <v-app-bar app  v-show="!['Admin','GestorUsuarios','GestorCategorias','GestorArticulos'].includes($route.name)" >
+    <header
+      app  
+      v-show="!['Admin','GestorUsuarios','GestorCategorias','GestorArticulos'].includes($route.name)" >
       <seccion-encabezado/>
-    </v-app-bar>
+    </header>
+
     <v-main>
       <router-view/>
     </v-main>
+
   </v-app>
 </template>
 
@@ -15,11 +19,15 @@ import SeccionArticulos from './components/SeccionArticulos.vue';
 import SeccionEncabezado from './components/SeccionEncabezado.vue';
 
 export default {
-  components: { SeccionArticulos,SeccionEncabezado },
   name: 'App',
+  components: { 
+    SeccionArticulos,
+    SeccionEncabezado 
+  },
+  data() {
+    return{
 
-  data: () => ({
-    
-  }),
+    }
+  },
 };
 </script>
