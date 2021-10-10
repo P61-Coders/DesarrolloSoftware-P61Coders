@@ -1,9 +1,9 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="desserts"
-    sort-by="calories"
-    class="elevation-1"
+    :items="usuarios"
+    sort-by="rol"
+    class="elevation-2"
   >
     <template v-slot:top>
       <v-toolbar
@@ -28,7 +28,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              New Item
+              Agregar Usuario
             </v-btn>
           </template>
           <v-card>
@@ -49,7 +49,7 @@
                       label="Nombre"
                     ></v-text-field>
                   </v-col>
-                  <v-col
+                  <v-col v-if="editedIndex===-1"
                     cols="12"
                     sm="6"
                     md="4"
@@ -63,16 +63,33 @@
                     cols="12"
                     sm="6"
                     md="4"
+                    
                   >
-                    <v-text-field
-                      v-model="editedItem.rol"
-                      label="Rol"
-                    ></v-text-field>
+                    <v-select
+                    v-model="editedItem.rol"
+                    :items="rol"
+                    :rules="[v => !!v || 'Rol is required']"
+                    label="Rol"
+                    required
+                    ></v-select>
                   </v-col>
+
                   <v-col
                     cols="12"
                     sm="6"
                     md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.password"
+                      label="Password"
+                    ></v-text-field>
+                  </v-col>
+
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                    v-if="editedIndex===-1"
                   >
                     <v-text-field
                       v-model="editedItem.activo"
@@ -84,10 +101,7 @@
                     sm="6"
                     md="4"
                   >
-                    <v-text-field
-                      v-model="editedItem.data"
-                      label="Data"
-                    ></v-text-field>
+                    
                   </v-col>
                 </v-row>
               </v-container>
@@ -114,7 +128,7 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+            <v-card-title class="text-h5">Desea borrar el usuario?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -152,14 +166,21 @@
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     name: 'GestorUsuarios',
     data: () => ({
       dialog: false,
       dialogDelete: false,
+      rol:['administrador','gestor'],
       headers: [
         {
-          text: 'Usuarios',
+           text: 'ID',
+           sortable: false,
+           value: '_id',
+        }, 
+        {
+          text: 'Nombre',
           align: 'start',
           sortable: false,
           value: 'nombre',
@@ -169,6 +190,7 @@
         { text: 'Activo', value: 'activo' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
+      usuarios:[],
       desserts: [],
       editedIndex: -1,
       editedItem: {
@@ -176,20 +198,20 @@
         correo: '',
         rol: '',
         activo: true,
-        creacion: '',
+        password: '',
       },
       defaultItem: {
         nombre: '',
         correo: 0,
         rol: '',
         activo: true,
-        creacion: '',
+        password: '',
       },
     }),
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'New user' : 'Edit user'
       },
     },
 
@@ -203,13 +225,14 @@
     },
 
     created () {
-      this.initialize()
+      this.list()
     },
 
     methods: {
       initialize () {
         this.desserts = [
           {
+            _id: 'ddddds',  
             nombre: 'Usuario 0',
             correo: "usuario@gmial.com",
             rol: "Administrador",
@@ -217,6 +240,7 @@
            
           },
           {
+            _id: 'qqas'  ,
             nombre: 'Usuario 0',
             correo: "usuario@gmial.com",
             rol: "Administrador",
@@ -226,21 +250,32 @@
           
         ]
       },
+      list(){ //nota: no usar arraylist aca
+          axios.get('http://localhost:3000/api/usuario/list').
+          then(response =>{
+                  this.usuarios = response.data;
+                  console.log(response)
+              }
+          ).catch(err =>{
+              console.log(err);
+              return err
+          })
+      },
 
       editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
+        this.editedIndex = this.usuarios.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
 
       deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
+        this.editedIndex = this.usuarios.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
 
       deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
+        this.usuarios.splice(this.editedIndex, 1)
         this.closeDelete()
       },
 
@@ -260,14 +295,41 @@
         })
       },
 
+    //   save () {
+    //     if (this.editedIndex > -1) {
+    //       Object.assign(this.usuarios[this.editedIndex], this.editedItem)
+    //     } else {
+    //       this.usuarios.push(this.editedItem)
+    //     }
+    //     this.close()
+    //   },
+
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
+          Object.assign(this.usuarios[this.editedIndex], this.editedItem)
         } else {
-          this.desserts.push(this.editedItem)
+          
+          axios.post('http://localhost:3000/api/usuario/add', {
+              nombre: this.editedItem.nombre,
+              correo: this.editedItem.correo,
+              rol: this.editedItem.rol,
+              password: this.editedItem.password,
+              activo: this.editedItem.activo
+          }  ).
+          then(response =>{
+                  this.usuarios.push(response.data);
+                  
+              }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          })
         }
         this.close()
       },
+
+
+
     },
   }
 </script>
