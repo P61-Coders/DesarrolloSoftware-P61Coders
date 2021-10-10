@@ -74,10 +74,12 @@ const routes = [
       {
         path: 'articulos', //pendiente aca con el nombre
         name: 'GestorArticulos',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GestorArticulos.vue')
       },
       {
         path: 'categorias', //pendiente aca con el nombre
         name: 'GestorCategorias',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GestorCategorias.vue')
       }
       ]
   }

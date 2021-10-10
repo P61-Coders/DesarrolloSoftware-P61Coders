@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="usuarios"
+    :items="categorias"
     sort-by="rol"
     class="elevation-2"
   >
@@ -9,7 +9,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Gestión de Usuarios</v-toolbar-title>
+        <v-toolbar-title>Gestión de Categorias</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -28,7 +28,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              Agregar Usuario
+              Agregar Categoria
             </v-btn>
           </template>
           <v-card>
@@ -128,7 +128,7 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Desea borrar el usuario?</v-card-title>
+            <v-card-title class="text-h5">Desea borrar la categoria?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -168,7 +168,7 @@
 <script>
 import axios from 'axios'
   export default {
-    name: 'GestorUsuarios',
+    name: 'GestorCategorias',
     data: () => ({
       dialog: false,
       dialogDelete: false,
@@ -185,27 +185,24 @@ import axios from 'axios'
           sortable: false,
           value: 'nombre',
         },
-        { text: 'Correo', value: 'corre' },
-        { text: 'Rol', value: 'rol' },
+        { text: 'Descripción', value: 'descripcion' },
         { text: 'Activo', value: 'activo' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
-      usuarios:[],
-      desserts: [],
+      categorias:[],
+      
       editedIndex: -1,
       editedItem: {
         nombre: '',
-        correo: '',
-        rol: '',
+        descripcion: '',
         activo: true,
-        password: '',
+        
       },
       defaultItem: {
         nombre: '',
-        correo: 0,
-        rol: '',
+        descripcion: '',
         activo: true,
-        password: '',
+        
       },
     }),
 
