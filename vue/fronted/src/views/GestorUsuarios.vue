@@ -185,7 +185,7 @@ import axios from 'axios'
           sortable: false,
           value: 'nombre',
         },
-        { text: 'Correo', value: 'corre' },
+        { text: 'Correo', value: 'correo' },
         { text: 'Rol', value: 'rol' },
         { text: 'Activo', value: 'activo' },
         { text: 'Actions', value: 'actions', sortable: false },
