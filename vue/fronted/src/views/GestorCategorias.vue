@@ -46,24 +46,28 @@
                   >
                     <v-text-field
                       v-model="editedItem.nombre"
+                      :rules="[v => !!v || 'nombre is required, Copie en Mayusculas']"
                       label="Nombre"
+                      required
                     ></v-text-field>
                   </v-col>
-                  <v-col v-if="editedIndex===-1"
+                  <v-col 
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="8"
+                    md="8"
                   >
                     <v-text-field
-                      v-model="editedItem.correo"
-                      label="Correo"
+                      v-model="editedItem.descripcion"
+                      :rules="[v => !!v || 'descripcion is required']"
+                      label="Descripción"
+                      required
                     ></v-text-field>
                   </v-col>
-                  <v-col
+
+                  <!-- <v-col
                     cols="12"
                     sm="6"
                     md="4"
-                    
                   >
                     <v-select
                     v-model="editedItem.rol"
@@ -72,19 +76,9 @@
                     label="Rol"
                     required
                     ></v-select>
-                  </v-col>
+                  </v-col> -->
 
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.password"
-                      label="Password"
-                    ></v-text-field>
-                  </v-col>
-
+                
                   <v-col
                     cols="12"
                     sm="6"
@@ -128,7 +122,7 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Desea borrar la categoria?</v-card-title>
+            <v-card-title class="text-h5">Desea activar/desactivar la categoria?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -148,10 +142,15 @@
         mdi-pencil
       </v-icon>
       <v-icon
-        small
+        x-large
         @click="deleteItem(item)"
-      >
-        mdi-delete
+      > 
+        <template v-if="item.activo">
+          mdi-toggle-switch
+        </template>
+        <template v-else >
+          mdi-toggle-switch-off-outline
+        </template>
       </v-icon>
     </template>
     <template v-slot:no-data>
@@ -193,12 +192,14 @@ import axios from 'axios'
       
       editedIndex: -1,
       editedItem: {
+        _id:'',
         nombre: '',
         descripcion: '',
         activo: true,
         
       },
       defaultItem: {
+        _id:'',
         nombre: '',
         descripcion: '',
         activo: true,
@@ -227,30 +228,21 @@ import axios from 'axios'
 
     methods: {
       initialize () {
-        this.desserts = [
+        this.categorias = [
           {
             _id: 'ddddds',  
             nombre: 'Usuario 0',
-            correo: "usuario@gmial.com",
-            rol: "Administrador",
+            descripcion: "usuario@gmial.com",
             activo: true,
            
           },
-          {
-            _id: 'qqas'  ,
-            nombre: 'Usuario 0',
-            correo: "usuario@gmial.com",
-            rol: "Administrador",
-            activo: true,
-           
-          }
-          
+         
         ]
       },
       list(){ //nota: no usar arraylist aca
-          axios.get('http://localhost:3000/api/usuario/list').
+          axios.get('http://localhost:3000/api/categoria/list').
           then(response =>{
-                  this.usuarios = response.data;
+                  this.categorias = response.data;
                   console.log(response)
               }
           ).catch(err =>{
@@ -260,21 +252,45 @@ import axios from 'axios'
       },
 
       editItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.categorias.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
 
       deleteItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.categorias.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
-
+      //metodo de activar - desactivar categorias
       deleteItemConfirm () {
-        this.usuarios.splice(this.editedIndex, 1)
+        if (this.editedItem.activo === true) {
+          axios.put('http://localhost:3000/api/categoria/desactivate', {
+              _id: this.editedItem._id
+          }).
+          then(response =>{
+              this.list();
+            }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          });
+        } else {
+          axios.put('http://localhost:3000/api/categoria/activate', {
+              _id: this.editedItem._id
+          }).
+          then(response =>{
+              this.list();
+            }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          });
+        }
+
         this.closeDelete()
       },
+      
 
       close () {
         this.dialog = false
@@ -291,30 +307,30 @@ import axios from 'axios'
           this.editedIndex = -1
         })
       },
-
-    //   save () {
-    //     if (this.editedIndex > -1) {
-    //       Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-    //     } else {
-    //       this.usuarios.push(this.editedItem)
-    //     }
-    //     this.close()
-    //   },
-
+      //metodos de crear y actualizar categorias
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.usuarios[this.editedIndex], this.editedItem)
+          axios.put('http://localhost:3000/api/categoria/update', {
+              _id: this.editedItem._id,
+              nombre: this.editedItem.nombre,
+              descripcion: this.editedItem.descripcion
+          }  ).
+          then(response =>{
+                  this.list();
+              }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          })
         } else {
           
-          axios.post('http://localhost:3000/api/usuario/add', {
+          axios.post('http://localhost:3000/api/categoria/add', {
               nombre: this.editedItem.nombre,
-              correo: this.editedItem.correo,
-              rol: this.editedItem.rol,
-              password: this.editedItem.password,
+              descripcion: this.editedItem.descripcion,
               activo: this.editedItem.activo
           }  ).
           then(response =>{
-                  this.usuarios.push(response.data);
+                  this.list();
                   
               }
           ).catch(err =>{

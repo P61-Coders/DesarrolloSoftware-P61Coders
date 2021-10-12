@@ -322,11 +322,9 @@ import axios from 'axios'
           });
         }
 
-
-
-
         this.closeDelete()
       },
+
 
       close () {
         this.dialog = false
