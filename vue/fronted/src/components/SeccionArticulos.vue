@@ -4,7 +4,7 @@
 
         <section class= "seccion-articulos">
         <article class="frutas">
-        <h2 class="frutas_titulo">{{servicio1.nombre}}</h2>
+        <h2 class="frutas_titulo">{{categorias[2].nombre}}</h2>
         <img class= "frutas_imagen" src="@/assets/images/frutas.jpg" alt="Frutas colombianas">
         <p class="frutas_descripcion">
           Clic aquí para encontrar las mejores y todas las <br> frutas de nuestro campo colombiano
@@ -13,7 +13,7 @@
         </article>
 
         <article class="verduras">
-        <h2 class="verduras_titulo">{{servicio2.nombre}}</h2>
+        <h2 class="verduras_titulo">{{categorias[1].nombre}}</h2>
         <img class= "verduras_imagen" src="@/assets/images/verduras.jpg" alt="Verduras colombianas">
         <p class="verduras_descripcion">
           Clic aquí para encontrar las mejores y todas las <br> verduras de nuestro campo colombiano
@@ -22,7 +22,7 @@
       </article>
 
       <article class="otros">
-        <h2 class="otros_titulo">{{servicio3.nombre}}</h2>
+        <h2 class="otros_titulo">{{categorias[0].nombre}}</h2>
         <img class= "otros_imagen" src="@/assets/images/exoticas.jpg" alt="exoticos colombianas">
         <p class="otros_descripcion">
           Clic aquí para encontrar las mejores <br> frutas y verduras orgánicas y/o exóticas
@@ -35,19 +35,39 @@
 
 
 <script>
+import axios from 'axios'
 export default {
     name: 'SeccionArticulos',
     data: () => ({
-        servicio1:
-        {nombre:"Frutas"},
-        servicio2:
-        {nombre:"Verduras"},
-        servicio3: 
-        {nombre:"Exóticos"}
+        categorias:"",
+
+        // servicio1:
+        // {nombre:"Frutas"},
+        // servicio2:
+        // {nombre:"Verduras"},
+        // servicio3: 
+        // {nombre:"Exóticos"}
     
   }),
 
+    created () {
+      this.list()
+    },
     methods: {
+
+        list(){ //nota: no usar arraylist aca
+          axios.get('http://localhost:3000/api/categoria/list').
+          then(response =>{
+                  this.categorias = response.data;
+                  console.log(response);
+                  console.log(this.categorias)
+              }
+          ).catch(err =>{
+              console.log(err);
+              return err
+          })
+        },
+
         irFrutas(){
             this.$router.push("/frutas")
         },

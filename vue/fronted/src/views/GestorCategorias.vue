@@ -34,6 +34,7 @@
           <v-card>
             <v-card-title>
               <span class="text-h5">{{ formTitle }}</span>
+              
             </v-card-title>
 
             <v-card-text>
@@ -117,7 +118,9 @@
               >
                 Save
               </v-btn>
+              
             </v-card-actions>
+            
           </v-card>
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
@@ -132,6 +135,7 @@
           </v-card>
         </v-dialog>
       </v-toolbar>
+
     </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon
@@ -161,7 +165,9 @@
         Reset
       </v-btn>
     </template>
+    
   </v-data-table>
+  
 </template>
 
 <script>
@@ -169,6 +175,7 @@ import axios from 'axios'
   export default {
     name: 'GestorCategorias',
     data: () => ({
+      message:'',
       dialog: false,
       dialogDelete: false,
       rol:['administrador','gestor'],
@@ -334,8 +341,9 @@ import axios from 'axios'
                   
               }
           ).catch(err =>{
+              this.message="error";
               console.log(err.response);
-              return err
+              
           })
         }
         this.close()
