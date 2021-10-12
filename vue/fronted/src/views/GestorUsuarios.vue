@@ -56,6 +56,7 @@
                   >
                     <v-text-field
                       v-model="editedItem.correo"
+                      :rules="emailRules"
                       label="Correo"
                     ></v-text-field>
                   </v-col>
@@ -81,6 +82,8 @@
                   >
                     <v-text-field
                       v-model="editedItem.password"
+                      :rules="[rules.required, rules.min]"
+                      hint="At least 8 characters"
                       label="Password"
                     ></v-text-field>
                   </v-col>
@@ -117,6 +120,7 @@
                 Cancel
               </v-btn>
               <v-btn
+                :disabled="editedItem.password.length>=8 ? false:true"
                 color="blue darken-1"
                 text
                 @click="save"
@@ -128,7 +132,7 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Desea borrar el usuario?</v-card-title>
+            <v-card-title class="text-h5">Desea Activar/Desactivar el usuario?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -141,17 +145,23 @@
     </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon
-        small
+        
         class="mr-2"
         @click="editItem(item)"
       >
         mdi-pencil
       </v-icon>
       <v-icon
-        small
+        x-large
         @click="deleteItem(item)"
-      >
-        mdi-delete
+      > 
+        <template v-if="item.activo">
+          mdi-toggle-switch
+        </template>
+        <template v-else >
+          mdi-toggle-switch-off-outline
+        </template>
+
       </v-icon>
     </template>
     <template v-slot:no-data>
@@ -170,6 +180,16 @@ import axios from 'axios'
   export default {
     name: 'GestorUsuarios',
     data: () => ({
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+
+      rules: {
+          required: value => !!value || 'Required.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          emailMatch: () => (`The email and password you entered don't match`),
+        },
       dialog: false,
       dialogDelete: false,
       rol:['administrador','gestor'],
@@ -194,6 +214,7 @@ import axios from 'axios'
       desserts: [],
       editedIndex: -1,
       editedItem: {
+        _id:'',
         nombre: '',
         correo: '',
         rol: '',
@@ -201,6 +222,7 @@ import axios from 'axios'
         password: '',
       },
       defaultItem: {
+        _id:'',
         nombre: '',
         correo: 0,
         rol: '',
@@ -275,7 +297,34 @@ import axios from 'axios'
       },
 
       deleteItemConfirm () {
-        this.usuarios.splice(this.editedIndex, 1)
+        // this.usuarios.splice(this.editedIndex, 1)
+        if (this.editedItem.activo === true) {
+          axios.put('http://localhost:3000/api/usuario/desactivate', {
+              _id: this.editedItem._id
+          }).
+          then(response =>{
+              this.list();
+            }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          });
+        } else {
+          axios.put('http://localhost:3000/api/usuario/activate', {
+              _id: this.editedItem._id
+          }).
+          then(response =>{
+              this.list();
+            }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          });
+        }
+
+
+
+
         this.closeDelete()
       },
 
@@ -306,7 +355,22 @@ import axios from 'axios'
 
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.usuarios[this.editedIndex], this.editedItem)
+          // Object.assign(this.usuarios[this.editedIndex], this.editedItem)
+
+          axios.put('http://localhost:3000/api/usuario/update', {
+              nombre: this.editedItem.nombre,
+              correo: this.editedItem.correo,
+              rol: this.editedItem.rol,
+              password: this.editedItem.password,
+          }).
+          then(response =>{
+              this.list();
+            }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          });
+
         } else {
           
           axios.post('http://localhost:3000/api/usuario/add', {
