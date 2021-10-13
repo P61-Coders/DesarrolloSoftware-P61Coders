@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container >
         <h2 class="seccion-articulos_titulo" >SECCIÓN SERVICIOS</h2>
 
         <section class= "seccion-articulos">
@@ -29,7 +29,7 @@
         <v-btn color="primary" small v-on:click="irExoticas()" > IR  </v-btn>  
         </p>
       </article>
-        </section>
+      </section>
     </v-container>
 </template>
 
