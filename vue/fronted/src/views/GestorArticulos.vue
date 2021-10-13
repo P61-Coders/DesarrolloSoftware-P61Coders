@@ -2,7 +2,7 @@
   <v-data-table
     :headers="headers"
     :items="articulos"
-    sort-by="rol"
+    sort-by="precioXkilo"
     class="elevation-2"
   >
     <template v-slot:top>
@@ -49,14 +49,14 @@
                       label="Nombre"
                     ></v-text-field>
                   </v-col>
-                  <v-col v-if="editedIndex===-1"
+                  <v-col 
                     cols="12"
                     sm="6"
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.correo"
-                      label="Correo"
+                      v-model="editedItem.descripcion"
+                      label="Descripcion"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -66,10 +66,10 @@
                     
                   >
                     <v-select
-                    v-model="editedItem.rol"
-                    :items="rol"
-                    :rules="[v => !!v || 'Rol is required']"
-                    label="Rol"
+                    v-model="editedItem.categoria"
+                    :items="categorias"
+                    :rules="[v => !!v || 'categoria is required']"
+                    label="Categoria"
                     required
                     ></v-select>
                   </v-col>
@@ -80,8 +80,10 @@
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.password"
-                      label="Password"
+                      v-model="editedItem.precioXkilo"
+                      label="PrecioXKilo"
+                      :rules="[v => !!v || 'Precio is required']"
+                      required
                     ></v-text-field>
                   </v-col>
 
@@ -89,11 +91,11 @@
                     cols="12"
                     sm="6"
                     md="4"
-                    v-if="editedIndex===-1"
+                    
                   >
                     <v-text-field
-                      v-model="editedItem.activo"
-                      label="Activo"
+                      v-model="editedItem.codigo"
+                      label="Codigo"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -117,6 +119,7 @@
                 Cancel
               </v-btn>
               <v-btn
+                :disabled="editedItem.codigo.length>=1  ? false:true"
                 color="blue darken-1"
                 text
                 @click="save"
@@ -141,14 +144,14 @@
     </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon
-        small
+        
         class="mr-2"
         @click="editItem(item)"
       >
         mdi-pencil
       </v-icon>
       <v-icon
-        small
+        
         @click="deleteItem(item)"
       >
         mdi-delete
@@ -172,12 +175,12 @@ import axios from 'axios'
     data: () => ({
       dialog: false,
       dialogDelete: false,
-      rol:['administrador','gestor'],
+      
       headers: [
         {
-           text: 'ID',
+           text: 'Codigo',
            sortable: false,
-           value: '_id',
+           value: 'codigo',
         }, 
         {
           text: 'Nombre',
@@ -187,25 +190,28 @@ import axios from 'axios'
         },
         { text: 'Descripción', value: 'descripcion' },
         { text: 'PrecioXkilo', value: 'precioXkilo' },
-        { text: 'Activo', value: 'activo' },
+        { text: 'Categoria', value: 'categoria.nombre' },
+        
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       articulos:[],
-      desserts: [],
+      categorias:[],
       editedIndex: -1,
       editedItem: {
+        _id:'',
         nombre: '',
-        correo: '',
-        rol: '',
-        activo: true,
-        password: '',
+        codigo: '',
+        descripcion: '',
+        precioXkilo:0,
+        categoria: '',
       },
       defaultItem: {
+        _id:'',
         nombre: '',
-        correo: 0,
-        rol: '',
-        activo: true,
-        password: '',
+        codigo: '',
+        descripcion: '',
+        precioXkilo:0,
+        categoria: '',
       },
     }),
 
@@ -226,6 +232,8 @@ import axios from 'axios'
 
     created () {
       this.list()
+      this.categoriasListar()
+      
     },
 
     methods: {
@@ -239,21 +247,30 @@ import axios from 'axios'
             activo: true,
            
           },
-          {
-            _id: 'qqas'  ,
-            nombre: 'Usuario 0',
-            correo: "usuario@gmial.com",
-            rol: "Administrador",
-            activo: true,
-           
-          }
           
         ]
       },
-      list(){ //nota: no usar arraylist aca
-          axios.get('http://localhost:3000/api/usuario/list').
+      categoriasListar(){
+          axios.get('http://localhost:3000/api/categoria/listActivos').
           then(response =>{
-                  this.usuarios = response.data;
+                  let respuesta = response.data;
+                  respuesta.map(item=>{
+                    this.categorias.push({
+                      text:item.nombre,
+                      value: item._id
+                    });
+                    console.log(this.categorias)
+                  })
+              }
+          ).catch(err =>{
+              console.log(err);
+              return err
+          })
+      },
+      list(){ //nota: no usar arraylist aca
+          axios.get('http://localhost:3000/api/articulo/list').
+          then(response =>{
+                  this.articulos = response.data;
                   console.log(response)
               }
           ).catch(err =>{
@@ -263,19 +280,30 @@ import axios from 'axios'
       },
 
       editItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.articulos.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
 
       deleteItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.articulos.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
 
       deleteItemConfirm () {
-        this.usuarios.splice(this.editedIndex, 1)
+        if (this.editedIndex > -1) {
+          axios.delete('http://localhost:3000/api/articulo/remove',{
+            data:{_id: this.editedItem._id}// es necesario enviarlo adentor de un objeto 'data'
+          } ).
+          then(response =>{
+                  this.list();
+              }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          })
+        }
         this.closeDelete()
       },
 
@@ -295,29 +323,37 @@ import axios from 'axios'
         })
       },
 
-    //   save () {
-    //     if (this.editedIndex > -1) {
-    //       Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-    //     } else {
-    //       this.usuarios.push(this.editedItem)
-    //     }
-    //     this.close()
-    //   },
+    
 
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-        } else {
-          
-          axios.post('http://localhost:3000/api/usuario/add', {
+          axios.put('http://localhost:3000/api/articulo/update', {
+              _id: this.editedItem._id,
               nombre: this.editedItem.nombre,
-              correo: this.editedItem.correo,
-              rol: this.editedItem.rol,
-              password: this.editedItem.password,
-              activo: this.editedItem.activo
+              descripcion: this.editedItem.descripcion,
+              precioXkilo: this.editedItem.precioXkilo,
+              categoria: this.editedItem.categoria,
+              codigo: this.editedItem.codigo
           }  ).
           then(response =>{
-                  this.usuarios.push(response.data);
+                  this.list();
+              }
+          ).catch(err =>{
+              console.log(err.response);
+              return err
+          })
+        } else {
+          
+          axios.post('http://localhost:3000/api/articulo/add', {
+              nombre: this.editedItem.nombre,
+              descripcion: this.editedItem.descripcion,
+              codigo: this.editedItem.codigo,
+              precioXkilo: this.editedItem.precioXkilo,
+              categoria: this.editedItem.categoria
+              
+          }  ).
+          then(response =>{
+                  this.list();
                   
               }
           ).catch(err =>{
