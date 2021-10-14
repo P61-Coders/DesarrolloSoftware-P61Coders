@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <v-div>
   <hello-world />
   <seccion-articulos/>
-  </div>
+  <seccion-noticias/>
+  </v-div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import HelloWorld from '../components/HelloWorld';
+  import seccionNoticias from '../components/SeccionNoticias.vue';
   import SeccionArticulos from '../components/SeccionArticulos'; 
   
 
@@ -17,7 +19,8 @@
 
     components: {
       HelloWorld,
-      SeccionArticulos
+      SeccionArticulos,
+      seccionNoticias
         
     },
   }

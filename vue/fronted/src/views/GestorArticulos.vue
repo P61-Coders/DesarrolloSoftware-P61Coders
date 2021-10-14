@@ -1,15 +1,15 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="usuarios"
-    sort-by="rol"
+    :items="articulos"
+    sort-by="precioXkilo"
     class="elevation-2"
   >
     <template v-slot:top>
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Gestión de Usuarios</v-toolbar-title>
+        <v-toolbar-title>Gestión de Artículos</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -28,7 +28,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              Agregar Usuario
+              Agregar Artículo
             </v-btn>
           </template>
           <v-card>
@@ -49,15 +49,15 @@
                       label="Nombre"
                     ></v-text-field>
                   </v-col>
-                  <v-col v-if="editedIndex===-1"
+                  <v-col 
                     cols="12"
                     sm="6"
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.correo"
-                      :rules="emailRules"
-                      label="Correo"
+                      v-model="editedItem.descripcion"
+                      label="Descripcion"
+                      :rules="[v => !!v || 'minimo 7 letras']"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -67,10 +67,10 @@
                     
                   >
                     <v-select
-                    v-model="editedItem.rol"
-                    :items="rol"
-                    :rules="[v => !!v || 'Rol is required']"
-                    label="Rol"
+                    v-model="editedItem.categoria"
+                    :items="categorias"
+                    :rules="[v => !!v || 'categoria is required']"
+                    label="Categoria"
                     required
                     ></v-select>
                   </v-col>
@@ -81,10 +81,10 @@
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.password"
-                      :rules="[rules.required, rules.min]"
-                      hint="At least 8 characters"
-                      label="Password"
+                      v-model="editedItem.precioXkilo"
+                      label="PrecioXKilo"
+                      :rules="[v => !!v || 'Precio is required']"
+                      required
                     ></v-text-field>
                   </v-col>
 
@@ -92,11 +92,11 @@
                     cols="12"
                     sm="6"
                     md="4"
-                    v-if="editedIndex===-1"
+                    
                   >
                     <v-text-field
-                      v-model="editedItem.activo"
-                      label="Activo"
+                      v-model="editedItem.codigo"
+                      label="Codigo"
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -120,7 +120,7 @@
                 Cancel
               </v-btn>
               <v-btn
-                :disabled="editedItem.password.length>=8 ? false:true"
+                :disabled="editedItem.codigo.length>=1  ? false:true"
                 color="blue darken-1"
                 text
                 @click="save"
@@ -132,7 +132,7 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Desea Activar/Desactivar el usuario?</v-card-title>
+            <v-card-title class="text-h5">Desea borrar el articulo?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -152,16 +152,10 @@
         mdi-pencil
       </v-icon>
       <v-icon
-        x-large
+        
         @click="deleteItem(item)"
-      > 
-        <template v-if="item.activo">
-          mdi-toggle-switch
-        </template>
-        <template v-else >
-          mdi-toggle-switch-off-outline
-        </template>
-
+      >
+        mdi-delete
       </v-icon>
     </template>
     <template v-slot:no-data>
@@ -178,26 +172,16 @@
 <script>
 import axios from 'axios'
   export default {
-    name: 'GestorUsuarios',
+    name: 'GestorArticulos',
     data: () => ({
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
-
-      rules: {
-          required: value => !!value || 'Required.',
-          min: v => v.length >= 8 || 'Min 8 characters',
-          emailMatch: () => (`The email and password you entered don't match`),
-        },
       dialog: false,
       dialogDelete: false,
-      rol:['administrador','gestor'],
+      
       headers: [
         {
-           text: 'ID',
+           text: 'Codigo',
            sortable: false,
-           value: '_id',
+           value: 'codigo',
         }, 
         {
           text: 'Nombre',
@@ -205,29 +189,30 @@ import axios from 'axios'
           sortable: false,
           value: 'nombre',
         },
-        { text: 'Correo', value: 'correo' },
-        { text: 'Rol', value: 'rol' },
-        { text: 'Activo', value: 'activo' },
+        { text: 'Descripción', value: 'descripcion' },
+        { text: 'PrecioXkilo', value: 'precioXkilo' },
+        { text: 'Categoria', value: 'categoria.nombre' },
+        
         { text: 'Actions', value: 'actions', sortable: false },
       ],
-      usuarios:[],
-      desserts: [],
+      articulos:[],
+      categorias:[],
       editedIndex: -1,
       editedItem: {
         _id:'',
         nombre: '',
-        correo: '',
-        rol: '',
-        activo: true,
-        password: '',
+        codigo: '',
+        descripcion: '',
+        precioXkilo:0,
+        categoria: '',
       },
       defaultItem: {
         _id:'',
         nombre: '',
-        correo: 0,
-        rol: '',
-        activo: true,
-        password: '',
+        codigo: '',
+        descripcion: '',
+        precioXkilo:0,
+        categoria: '',
       },
     }),
 
@@ -248,6 +233,8 @@ import axios from 'axios'
 
     created () {
       this.list()
+      this.categoriasListar()
+      
     },
 
     methods: {
@@ -261,21 +248,30 @@ import axios from 'axios'
             activo: true,
            
           },
-          {
-            _id: 'qqas'  ,
-            nombre: 'Usuario 0',
-            correo: "usuario@gmial.com",
-            rol: "Administrador",
-            activo: true,
-           
-          }
           
         ]
       },
-      list(){ //nota: no usar arraylist aca
-          axios.get('http://localhost:3000/api/usuario/list').
+      categoriasListar(){
+          axios.get('http://localhost:3000/api/categoria/listActivos').
           then(response =>{
-                  this.usuarios = response.data;
+                  let respuesta = response.data;
+                  respuesta.map(item=>{
+                    this.categorias.push({
+                      text:item.nombre,
+                      value: item._id
+                    });
+                    console.log(this.categorias)
+                  })
+              }
+          ).catch(err =>{
+              console.log(err);
+              return err
+          })
+      },
+      list(){ //nota: no usar arraylist aca
+          axios.get('http://localhost:3000/api/articulo/list').
+          then(response =>{
+                  this.articulos = response.data;
                   console.log(response)
               }
           ).catch(err =>{
@@ -285,46 +281,32 @@ import axios from 'axios'
       },
 
       editItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.articulos.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
 
       deleteItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.articulos.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
 
       deleteItemConfirm () {
-        // this.usuarios.splice(this.editedIndex, 1)
-        if (this.editedItem.activo === true) {
-          axios.put('http://localhost:3000/api/usuario/desactivate', {
-              _id: this.editedItem._id
-          }).
+        if (this.editedIndex > -1) {
+          axios.delete('http://localhost:3000/api/articulo/remove',{
+            data:{_id: this.editedItem._id}// es necesario enviarlo adentor de un objeto 'data'
+          } ).
           then(response =>{
-              this.list();
-            }
+                  this.list();
+              }
           ).catch(err =>{
               console.log(err.response);
               return err
-          });
-        } else {
-          axios.put('http://localhost:3000/api/usuario/activate', {
-              _id: this.editedItem._id
-          }).
-          then(response =>{
-              this.list();
-            }
-          ).catch(err =>{
-              console.log(err.response);
-              return err
-          });
+          })
         }
-
         this.closeDelete()
       },
-
 
       close () {
         this.dialog = false
@@ -342,44 +324,37 @@ import axios from 'axios'
         })
       },
 
-    //   save () {
-    //     if (this.editedIndex > -1) {
-    //       Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-    //     } else {
-    //       this.usuarios.push(this.editedItem)
-    //     }
-    //     this.close()
-    //   },
+    
 
       save () {
         if (this.editedIndex > -1) {
-          // Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-
-          axios.put('http://localhost:3000/api/usuario/update', {
+          axios.put('http://localhost:3000/api/articulo/update', {
+              _id: this.editedItem._id,
               nombre: this.editedItem.nombre,
-              correo: this.editedItem.correo,
-              rol: this.editedItem.rol,
-              password: this.editedItem.password,
-          }).
+              descripcion: this.editedItem.descripcion,
+              precioXkilo: this.editedItem.precioXkilo,
+              categoria: this.editedItem.categoria,
+              codigo: this.editedItem.codigo
+          }  ).
           then(response =>{
-              this.list();
-            }
+                  this.list();
+              }
           ).catch(err =>{
               console.log(err.response);
               return err
-          });
-
+          })
         } else {
           
-          axios.post('http://localhost:3000/api/usuario/add', {
+          axios.post('http://localhost:3000/api/articulo/add', {
               nombre: this.editedItem.nombre,
-              correo: this.editedItem.correo,
-              rol: this.editedItem.rol,
-              password: this.editedItem.password,
-              activo: this.editedItem.activo
+              descripcion: this.editedItem.descripcion,
+              codigo: this.editedItem.codigo,
+              precioXkilo: this.editedItem.precioXkilo,
+              categoria: this.editedItem.categoria
+              
           }  ).
           then(response =>{
-                  this.usuarios.push(response.data);
+                  this.list();
                   
               }
           ).catch(err =>{

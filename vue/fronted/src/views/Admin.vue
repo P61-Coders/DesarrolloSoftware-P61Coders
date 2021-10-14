@@ -50,7 +50,7 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab :to="{name:'GestorUsuarios'}" v-if="isAdmin" >Usuarios</v-tab>
+          <v-tab :to="{name:'GestorUsuarios'}" v-if='isAdmin()' >Usuarios</v-tab>
           <v-tab :to="{name:'GestorCategorias'}">Categorías</v-tab>
           <v-tab :to="{name:'GestorArticulos'}">Artículos</v-tab> 
           <v-tab exact :to="{name:'Home'}">Home</v-tab>
@@ -93,7 +93,7 @@ export default {
         let token= localStorage.getItem('token');
         let decodificar = decode(token);
         let rol = decodificar.rol;
-        return rol === 'Administrador'? true:false;
+        return rol === 'gestor'? false:true;
 
       }
     }

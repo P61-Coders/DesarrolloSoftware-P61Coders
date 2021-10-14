@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="usuarios"
+    :items="categorias"
     sort-by="rol"
     class="elevation-2"
   >
@@ -9,7 +9,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Gestión de Usuarios</v-toolbar-title>
+        <v-toolbar-title>Gestión de Categorias</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -28,12 +28,13 @@
               v-bind="attrs"
               v-on="on"
             >
-              Agregar Usuario
+              Agregar Categoria
             </v-btn>
           </template>
           <v-card>
             <v-card-title>
               <span class="text-h5">{{ formTitle }}</span>
+              
             </v-card-title>
 
             <v-card-text>
@@ -46,25 +47,28 @@
                   >
                     <v-text-field
                       v-model="editedItem.nombre"
+                      :rules="[v => !!v || 'nombre is required, Copie en Mayusculas']"
                       label="Nombre"
+                      required
                     ></v-text-field>
                   </v-col>
-                  <v-col v-if="editedIndex===-1"
+                  <v-col 
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="8"
+                    md="8"
                   >
                     <v-text-field
-                      v-model="editedItem.correo"
-                      :rules="emailRules"
-                      label="Correo"
+                      v-model="editedItem.descripcion"
+                      :rules="[v => !!v || 'descripcion is required']"
+                      label="Descripción"
+                      required
                     ></v-text-field>
                   </v-col>
-                  <v-col
+
+                  <!-- <v-col
                     cols="12"
                     sm="6"
                     md="4"
-                    
                   >
                     <v-select
                     v-model="editedItem.rol"
@@ -73,21 +77,9 @@
                     label="Rol"
                     required
                     ></v-select>
-                  </v-col>
+                  </v-col> -->
 
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.password"
-                      :rules="[rules.required, rules.min]"
-                      hint="At least 8 characters"
-                      label="Password"
-                    ></v-text-field>
-                  </v-col>
-
+                
                   <v-col
                     cols="12"
                     sm="6"
@@ -120,19 +112,20 @@
                 Cancel
               </v-btn>
               <v-btn
-                :disabled="editedItem.password.length>=8 ? false:true"
                 color="blue darken-1"
                 text
                 @click="save"
               >
                 Save
               </v-btn>
+              
             </v-card-actions>
+            
           </v-card>
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Desea Activar/Desactivar el usuario?</v-card-title>
+            <v-card-title class="text-h5">Desea activar/desactivar la categoria?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -142,10 +135,11 @@
           </v-card>
         </v-dialog>
       </v-toolbar>
+
     </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon
-        
+        small
         class="mr-2"
         @click="editItem(item)"
       >
@@ -161,7 +155,6 @@
         <template v-else >
           mdi-toggle-switch-off-outline
         </template>
-
       </v-icon>
     </template>
     <template v-slot:no-data>
@@ -172,24 +165,17 @@
         Reset
       </v-btn>
     </template>
+    
   </v-data-table>
+  
 </template>
 
 <script>
 import axios from 'axios'
   export default {
-    name: 'GestorUsuarios',
+    name: 'GestorCategorias',
     data: () => ({
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
-
-      rules: {
-          required: value => !!value || 'Required.',
-          min: v => v.length >= 8 || 'Min 8 characters',
-          emailMatch: () => (`The email and password you entered don't match`),
-        },
+      message:'',
       dialog: false,
       dialogDelete: false,
       rol:['administrador','gestor'],
@@ -205,29 +191,26 @@ import axios from 'axios'
           sortable: false,
           value: 'nombre',
         },
-        { text: 'Correo', value: 'correo' },
-        { text: 'Rol', value: 'rol' },
+        { text: 'Descripción', value: 'descripcion' },
         { text: 'Activo', value: 'activo' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
-      usuarios:[],
-      desserts: [],
+      categorias:[],
+      
       editedIndex: -1,
       editedItem: {
         _id:'',
         nombre: '',
-        correo: '',
-        rol: '',
+        descripcion: '',
         activo: true,
-        password: '',
+        
       },
       defaultItem: {
         _id:'',
         nombre: '',
-        correo: 0,
-        rol: '',
+        descripcion: '',
         activo: true,
-        password: '',
+        
       },
     }),
 
@@ -252,30 +235,21 @@ import axios from 'axios'
 
     methods: {
       initialize () {
-        this.desserts = [
+        this.categorias = [
           {
             _id: 'ddddds',  
             nombre: 'Usuario 0',
-            correo: "usuario@gmial.com",
-            rol: "Administrador",
+            descripcion: "usuario@gmial.com",
             activo: true,
            
           },
-          {
-            _id: 'qqas'  ,
-            nombre: 'Usuario 0',
-            correo: "usuario@gmial.com",
-            rol: "Administrador",
-            activo: true,
-           
-          }
-          
+         
         ]
       },
       list(){ //nota: no usar arraylist aca
-          axios.get('http://localhost:3000/api/usuario/list').
+          axios.get('http://localhost:3000/api/categoria/list').
           then(response =>{
-                  this.usuarios = response.data;
+                  this.categorias = response.data;
                   console.log(response)
               }
           ).catch(err =>{
@@ -285,21 +259,20 @@ import axios from 'axios'
       },
 
       editItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.categorias.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
 
       deleteItem (item) {
-        this.editedIndex = this.usuarios.indexOf(item)
+        this.editedIndex = this.categorias.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
-
+      //metodo de activar - desactivar categorias
       deleteItemConfirm () {
-        // this.usuarios.splice(this.editedIndex, 1)
         if (this.editedItem.activo === true) {
-          axios.put('http://localhost:3000/api/usuario/desactivate', {
+          axios.put('http://localhost:3000/api/categoria/desactivate', {
               _id: this.editedItem._id
           }).
           then(response =>{
@@ -310,7 +283,7 @@ import axios from 'axios'
               return err
           });
         } else {
-          axios.put('http://localhost:3000/api/usuario/activate', {
+          axios.put('http://localhost:3000/api/categoria/activate', {
               _id: this.editedItem._id
           }).
           then(response =>{
@@ -324,7 +297,7 @@ import axios from 'axios'
 
         this.closeDelete()
       },
-
+      
 
       close () {
         this.dialog = false
@@ -341,50 +314,36 @@ import axios from 'axios'
           this.editedIndex = -1
         })
       },
-
-    //   save () {
-    //     if (this.editedIndex > -1) {
-    //       Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-    //     } else {
-    //       this.usuarios.push(this.editedItem)
-    //     }
-    //     this.close()
-    //   },
-
+      //metodos de crear y actualizar categorias
       save () {
         if (this.editedIndex > -1) {
-          // Object.assign(this.usuarios[this.editedIndex], this.editedItem)
-
-          axios.put('http://localhost:3000/api/usuario/update', {
+          axios.put('http://localhost:3000/api/categoria/update', {
+              _id: this.editedItem._id,
               nombre: this.editedItem.nombre,
-              correo: this.editedItem.correo,
-              rol: this.editedItem.rol,
-              password: this.editedItem.password,
-          }).
-          then(response =>{
-              this.list();
-            }
-          ).catch(err =>{
-              console.log(err.response);
-              return err
-          });
-
-        } else {
-          
-          axios.post('http://localhost:3000/api/usuario/add', {
-              nombre: this.editedItem.nombre,
-              correo: this.editedItem.correo,
-              rol: this.editedItem.rol,
-              password: this.editedItem.password,
-              activo: this.editedItem.activo
+              descripcion: this.editedItem.descripcion
           }  ).
           then(response =>{
-                  this.usuarios.push(response.data);
-                  
+                  this.list();
               }
           ).catch(err =>{
               console.log(err.response);
               return err
+          })
+        } else {
+          
+          axios.post('http://localhost:3000/api/categoria/add', {
+              nombre: this.editedItem.nombre,
+              descripcion: this.editedItem.descripcion,
+              activo: this.editedItem.activo
+          }  ).
+          then(response =>{
+                  this.list();
+                  
+              }
+          ).catch(err =>{
+              this.message="error";
+              console.log(err.response);
+              
           })
         }
         this.close()

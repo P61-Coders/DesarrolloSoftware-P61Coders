@@ -16,6 +16,7 @@
         <v-col id="nav" cols="8">
           <router-link :to="{ name: 'Home' }">Home</router-link> |
 
+<<<<<<< HEAD
           <v-menu>
             <template v-slot:activator="{ on: menu, attrs }">
               <v-tooltip bottom>
@@ -33,9 +34,15 @@
               </v-list-item>
             </v-list>
           </v-menu>
+=======
+    <div id="nav">
+      <router-link :to="{ name: 'Admin' }">Admin</router-link> |
+      <router-link :to="{ name: 'Calendario' }">Calendario de Ofertas</router-link>
+>>>>>>> 0298c832fbf27d26c18b8aa4f6334ca3adf88462
 
           <router-link :to="{ name: 'Tienda' }">Tienda</router-link> |
 
+<<<<<<< HEAD
           <router-link :to="{ name: 'Nosotros' }">Nosotros</router-link>
         </v-col>
 
@@ -50,6 +57,24 @@
         </v-col>
       </v-row>
     </v-container>
+=======
+      <!-- <router-link :to="{ name: 'Tienda' }">Tienda</router-link> | -->
+
+      
+    </div>
+
+    <v-spacer></v-spacer>
+
+    <div>
+      <v-btn icon :to="{ name: 'Login' }">
+          <v-icon>mdi-account</v-icon>
+      </v-btn>
+
+      <v-btn icon :to="{ name: 'Carrito' }">
+        <v-icon>mdi-cart</v-icon>
+      </v-btn>
+    </div>
+>>>>>>> 0298c832fbf27d26c18b8aa4f6334ca3adf88462
   </v-app-bar>
 </template>
 
