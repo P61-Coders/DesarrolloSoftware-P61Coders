@@ -62,7 +62,7 @@ export default {
 
       list(){
           axios.get('http://localhost:3000/api/articulo/list'
-
+        
           ).then(response =>{
                   let articulos = response.data;
                   articulos.map(item=>{

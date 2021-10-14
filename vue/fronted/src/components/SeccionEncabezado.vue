@@ -10,7 +10,8 @@
     <v-spacer></v-spacer>
 
     <div id="nav">
-      <router-link :to="{ name: 'Home' }">Home</router-link> |
+      <router-link :to="{ name: 'Admin' }">Admin</router-link> |
+      <router-link :to="{ name: 'Calendario' }">Calendario de Ofertas</router-link>
 
       <div class="text-center">
         <v-menu>
@@ -39,9 +40,9 @@
         </v-menu>
       </div>
 
-      <router-link :to="{ name: 'Tienda' }">Tienda</router-link> |
+      <!-- <router-link :to="{ name: 'Tienda' }">Tienda</router-link> | -->
 
-      <router-link :to="{ name: 'Nosotros' }">Nosotros</router-link>
+      
     </div>
 
     <v-spacer></v-spacer>
@@ -51,7 +52,7 @@
           <v-icon>mdi-account</v-icon>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn icon :to="{ name: 'Carrito' }">
         <v-icon>mdi-cart</v-icon>
       </v-btn>
     </div>

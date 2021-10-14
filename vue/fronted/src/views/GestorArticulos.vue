@@ -57,6 +57,7 @@
                     <v-text-field
                       v-model="editedItem.descripcion"
                       label="Descripcion"
+                      :rules="[v => !!v || 'minimo 7 letras']"
                     ></v-text-field>
                   </v-col>
                   <v-col

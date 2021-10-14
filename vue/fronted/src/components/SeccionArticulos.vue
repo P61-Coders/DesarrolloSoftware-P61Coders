@@ -2,8 +2,8 @@
     <v-container >
         <h2 class="seccion-articulos_titulo" >SECCIÓN SERVICIOS</h2>
 
-        <section class= "seccion-articulos" v-if="categorias[2].activo === true" >
-        <article class="frutas">
+        <section class= "seccion-articulos"  >
+        <article class="frutas" v-if="categorias[2].activo === true">
         <h2 class="frutas_titulo">{{categorias[2].nombre}}</h2>
         <img class= "frutas_imagen" src="@/assets/images/frutas.jpg" alt="Frutas colombianas">
         <p class="frutas_descripcion">
