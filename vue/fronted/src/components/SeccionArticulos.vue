@@ -2,7 +2,7 @@
     <v-container >
         <h2 class="seccion-articulos_titulo" >SECCIÓN SERVICIOS</h2>
 
-        <section class= "seccion-articulos">
+        <section class= "seccion-articulos" v-if="categorias[2].activo === true" >
         <article class="frutas">
         <h2 class="frutas_titulo">{{categorias[2].nombre}}</h2>
         <img class= "frutas_imagen" src="@/assets/images/frutas.jpg" alt="Frutas colombianas">
@@ -12,7 +12,7 @@
         </p>
         </article>
 
-        <article class="verduras">
+        <article class="verduras" v-if="categorias[1].activo === true">
         <h2 class="verduras_titulo">{{categorias[1].nombre}}</h2>
         <img class= "verduras_imagen" src="@/assets/images/verduras.jpg" alt="Verduras colombianas">
         <p class="verduras_descripcion">
@@ -21,7 +21,7 @@
         </p>
       </article>
 
-      <article class="otros">
+      <article class="otros" v-if="categorias[0].activo === true">
         <h2 class="otros_titulo">{{categorias[0].nombre}}</h2>
         <img class= "otros_imagen" src="@/assets/images/exoticas.jpg" alt="exoticos colombianas">
         <p class="otros_descripcion">
@@ -40,7 +40,7 @@ export default {
     name: 'SeccionArticulos',
     data: () => ({
         categorias:"",
-
+    
         // servicio1:
         // {nombre:"Frutas"},
         // servicio2:
@@ -58,6 +58,7 @@ export default {
         list(){ //nota: no usar arraylist aca
           axios.get('http://localhost:3000/api/categoria/list').
           then(response =>{
+                  
                   this.categorias = response.data;
                   console.log(response);
                   console.log(this.categorias)
