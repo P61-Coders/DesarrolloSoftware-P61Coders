@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import {mapState} from 'vuex';
 
 export default {
@@ -37,24 +38,53 @@ export default {
     },
     
     data: () => ({
-        frutas:[{
-            imagen:require('../assets/images/frutas/gulupa.jpg'),
-            nombre:"Gulupa",
-            precio:2000
-        },{
-            imagen:require('../assets/images/frutas/sandia.jpg'),
-            nombre:"Sandia",
-            precio:3000
-        },{
-            imagen:require("@/assets/images/frutas/lulo.jpg"),
-            nombre:"Lulo",
-            precio:1500
-        },
-        ],
-       
+        // frutas:[{
+        //     imagen:require('../assets/images/frutas/gulupa.jpg'),
+        //     nombre:"Gulupa",
+        //     precio:2000
+        // },{
+        //     imagen:require('../assets/images/frutas/sandia.jpg'),
+        //     nombre:"Sandia",
+        //     precio:3000
+        // },{
+        //     imagen:require("@/assets/images/frutas/lulo.jpg"),
+        //     nombre:"Lulo",
+        //     precio:1500
+        // },
+        // ],
+       frutas:[]
     }
     ),
+
+  created () {
+      this.list()},  
   methods: {
+
+      list(){
+          axios.get('http://localhost:3000/api/articulo/list'
+
+          ).then(response =>{
+                  let articulos = response.data;
+                  articulos.map(item=>{
+                      if (item.categoria.nombre=== 'FRUTAS') {
+                          
+                          this.frutas.push({
+                              nombre:item.nombre,
+                              precio: item.precioXkilo,
+                              imagen: require(`@/assets/images/frutas/${item.nombre}.jpg`)
+                          })
+                      } 
+                      
+                  } )
+                  
+                  
+              }
+          ).catch(err =>{
+              console.log(err);
+              return err
+          })
+        },
+      
       irHome(){
           this.$router.push("/")
       },
@@ -73,8 +103,8 @@ export default {
     }
 
 
-
 }
+
 </script>
 
 

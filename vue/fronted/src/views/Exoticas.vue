@@ -26,29 +26,43 @@
 </template>
 
 <script>
+import axios from 'axios'
 import {mapState} from 'vuex';
 export default {
     computed:{
         ...mapState(['listaCompras'])
     },
     data: () => ({
-        exoticas:[{
-            imagen:require("../assets/images/exoticas/pitaya.jpg"),
-            nombre:"Pitaya",
-            precio:3000
-        },{
-            imagen:require("../assets/images/exoticas/uchuva.jpg"),
-            nombre:"Uchuva",
-            precio:4000
-        },{
-            imagen:require("../assets/images/exoticas/borojo.jpg"),
-            nombre:"Borojo",
-            precio:3500
-        },
-        ]
+        exoticas:[]
     
   }),
+   created(){
+       this.list()
+   },
+
   methods: {
+      list(){
+          axios.get('http://localhost:3000/api/articulo/list'
+
+          ).then(response =>{
+                  let articulos = response.data;
+                  articulos.map(item=>{
+                      if (item.categoria.nombre=== 'EXÓTICAS') {
+                          
+                          this.exoticas.push({
+                              nombre:item.nombre,
+                              precio: item.precioXkilo,
+                              imagen: require(`@/assets/images/exoticas/${item.nombre}.jpg`)
+                          })
+                      } 
+                      
+                  } )     
+              }
+          ).catch(err =>{
+              console.log(err);
+              return err
+          })
+        },
       irHome(){
           this.$router.push("/")
       },
