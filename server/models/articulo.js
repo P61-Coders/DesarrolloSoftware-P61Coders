@@ -2,7 +2,7 @@
  const Schema= mongoose.Schema;
 
  const articuloSchema= new Schema({
-     category: {type:Schema.ObjectId  ,  ref:'categoria'},
+     categoria: {type:Schema.ObjectId  ,  ref:'categoria', required:[true, 'categoria obligatorio']},
      codigo:{type: String, 
          required:[true,'codigo obligatorio'], 
          maxlength: 50,
@@ -16,13 +16,13 @@
          type:String,
          required:true ,
          maxlength: 250,
-         minlength:10,
+         minlength:7,
      },
      precioXkilo:{
          type:Number, required:true
      },
      date:{type: Date, default: Date.now},
-     activo:{type: Boolean,default:true}
+     
  });
 
  const articulo= mongoose.model('articulo',articuloSchema);

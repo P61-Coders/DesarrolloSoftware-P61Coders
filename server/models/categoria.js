@@ -3,7 +3,7 @@ const Schema= mongoose.Schema;
 
 const categoriaSchema= new Schema({
     nombre:{type: String, 
-        required:[true,'Nombre obligatorio'], 
+        required:[true,'Nombre obligatorio, inserte todo en MAYUSCULAS'], 
         maxlength: 50,
         minlength:3,
         unique:true }, 
