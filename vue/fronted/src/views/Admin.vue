@@ -7,11 +7,8 @@
       dark
       shrink-on-scroll
       prominent
-      src="@/assets/images/cintaFrutasArriba.jpg"
       fade-img-on-scroll
       scroll-target="#scrolling-techniques-3"
-     
-      
     >
       <template v-slot:img="{ props }">
         <v-img

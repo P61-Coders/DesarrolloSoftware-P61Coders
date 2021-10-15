@@ -16,13 +16,13 @@
 
 <script>
 import SeccionArticulos from './components/SeccionArticulos.vue';
-import SeccionEncabezado from './components/SeccionEncabezado.vue';
+import SeccionEncabezado from './components/seccionEncabezado/SeccionEncabezado.vue';
 
 export default {
   name: 'App',
   components: { 
     SeccionArticulos,
-    SeccionEncabezado 
+    SeccionEncabezado, 
   },
   data() {
     return{

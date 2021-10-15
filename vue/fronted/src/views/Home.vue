@@ -1,27 +1,23 @@
 <template>
   <v-div>
-  <hello-world />
-  <seccion-articulos/>
-  <seccion-noticias/>
+    <seccion-slider/>
+    <seccion-noticias/>
+    <seccion-articulos/>
   </v-div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld';
   import seccionNoticias from '../components/SeccionNoticias.vue';
   import SeccionArticulos from '../components/SeccionArticulos'; 
-  
-
-
+  import SeccionSlider from '../components/SeccionSlider'; 
 
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
       SeccionArticulos,
-      seccionNoticias
-        
+      seccionNoticias,
+      SeccionSlider,        
     },
   }
 </script>
