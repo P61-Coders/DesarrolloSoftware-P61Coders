@@ -26,11 +26,9 @@
                             <div class="footer-tittle">
                                 <h4>Quick Links</h4>
                                 <ul class="footer-links">
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Pricing</a></li>
-                                    <li><a href="#">Download</a></li>
-                                    <li><a href="#">Reviews</a></li>
+                                    <li><a href="#">Nosotros</a></li>
+                                    <li><a href="#">Calendario</a></li>
+                                    <li><a href="#">Contactanos</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -40,11 +38,9 @@
                             <div class="footer-tittle">
                                 <h4>Support</h4>
                                 <ul class="footer-links">
-                                    <li><a href="#">Report a bug</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Sitemap</a></li>
-                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Frutas</a></li>
+                                    <li><a href="#">Verduras</a></li>
+                                    <li><a href="#">Exoticas</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -60,7 +56,7 @@
                              <div class="footer-form">
                                  <div id="mc_embed_signup">
                                      <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                         <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
+                                         <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Ingresa tu correo " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
                                          <div class="form-icon">
                                              <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="assets/img/shape/form_icon.png" alt=""></button>
                                          </div>
