@@ -16,7 +16,7 @@
                              </div>
                              <div class="footer-tittle">
                                  <div class="footer-links">
-                                     <p class="info1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                     <p class="info1">https://github.com/P61-Coders/DesarrolloSoftware-P61Coders.git</p>
                                 </div>
                              </div>
                          </div>
