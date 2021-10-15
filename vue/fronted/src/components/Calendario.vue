@@ -1,5 +1,5 @@
 <template >
-  <div id="app">
+  <div class="container calendario" id="app">
     <v-app id="inspire">
       <v-row class="fill-height">
         <v-col>
@@ -217,3 +217,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.calendario{
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+</style>

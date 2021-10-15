@@ -1,5 +1,5 @@
 <template>
-  <v-container>  
+  <v-container class="area_principal">  
   <v-form
     ref="form"
     v-model="valid"
@@ -112,6 +112,9 @@ import axios from 'axios'
   }
 </script>
 
-<style >
-   
+<style scoped>
+.area_principal{
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
 </style>
