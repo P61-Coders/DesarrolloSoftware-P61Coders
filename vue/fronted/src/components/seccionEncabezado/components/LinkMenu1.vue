@@ -20,11 +20,6 @@ export default {
 }
 </script>
 <style scoped>
-.link-menu-1 {
-    margin: 7px;
-    font-family: 'Poppins', sans-serif;
-}
-
 .link-title {
     color: #450b78;
 }
@@ -32,4 +27,5 @@ export default {
 .link-title:hover {
     font-weight: bold;
 }
+
 </style>

@@ -1,8 +1,7 @@
 
 <template>
-    <div>
+    <div class="container seccion">
     
-    <h2 class="seccion-articulos_titulo" >SECCIÓN ARTÍCULOS</h2>
     <h2 class="seccion-articulos_titulo-exoticas">PRODUCTOS EXÓTICOS - ORGÁNICOS</h2>
       <p class="seccion-articulos_descripcion-exoticas">
         Encuentra aquí las mejores frutas orgánicas y/o exóticas.
@@ -28,6 +27,7 @@
 <script>
 import axios from 'axios'
 import {mapState} from 'vuex';
+
 export default {
     computed:{
         ...mapState(['listaCompras'])
@@ -77,11 +77,12 @@ export default {
 }
 </script>
 
+<style scoped>
+.seccion{
+    padding-top: 200px;
+    padding-bottom: 150px;
+}
 
-<style>
-/* css para exoticas*/
-/* css para exoticas*/
-/* css para exoticas*/
 .seccion-articulos_titulo-exoticas{
     border: 1px solid black;
     background-color: rgb(10, 125, 140);
@@ -91,9 +92,11 @@ export default {
     margin-bottom: 1px;
     margin-top:5px;
 }
+
 .seccion-articulos_descripcion-exoticas{
     margin-top: 5px;
 }
+
 .seccion-articulos_descripcion-exoticas>a{
     text-decoration:underline;
     color: rgb(3, 11, 28)
@@ -111,6 +114,7 @@ export default {
     margin: 2px;
     color: rgb(3, 71, 107);
 }
+
 .exotica_botoncompra{
     background-color: rgb(238, 238, 238);
     border-radius: 10px;
@@ -123,10 +127,10 @@ export default {
     flex-wrap: wrap;
     justify-content:space-evenly;
 }
+
 .exotica{
     text-align:center;
     margin: 20px;
     background-color: rgb(226, 255, 245);
 }
-
 </style>

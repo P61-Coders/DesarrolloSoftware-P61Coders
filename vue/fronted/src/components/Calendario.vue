@@ -1,5 +1,5 @@
 <template >
-  <div class="container calendario" id="app">
+  <div class="container seccion" id="app">
     <v-app id="inspire">
       <v-row class="fill-height">
         <v-col>
@@ -219,7 +219,7 @@ export default {
 </script>
 
 <style scoped>
-.calendario{
+.seccion{
   padding-top: 150px;
   padding-bottom: 150px;
 }

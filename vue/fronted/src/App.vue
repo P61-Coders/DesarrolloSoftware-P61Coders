@@ -11,18 +11,22 @@
       <router-view/>
     </v-main>
 
+    <footer>
+      <seccion-footer/>
+    </footer>
+
   </v-app>
 </template>
 
 <script>
-import SeccionArticulos from './components/SeccionArticulos.vue';
 import SeccionEncabezado from './components/seccionEncabezado/SeccionEncabezado.vue';
+import SeccionFooter from './components/seccionFooter/SeccionFooter.vue';
 
 export default {
   name: 'App',
   components: { 
-    SeccionArticulos,
-    SeccionEncabezado, 
+    SeccionEncabezado,
+    SeccionFooter,
   },
   data() {
     return{

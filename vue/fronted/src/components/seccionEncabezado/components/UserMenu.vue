@@ -21,6 +21,7 @@
         </v-avatar>
       </v-badge>
     </template>
+
     <v-list>
       <div class="pb-3 pt-2">
         <v-badge
@@ -50,143 +51,118 @@
       <v-divider></v-divider>
 
       <!-- Dashboard -->
-      <v-list-item link>
+      <v-list-item :to="{ name: 'Admin' }">
         <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
+          <v-icon size="22">
                 {{ icons.mdiAccountOutline }}
-            </v-icon> -->
+            </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>
-            <router-link class="nav-link link-title" :to="{ name: 'Admin' }"
-              >Dashboard</router-link
-            >
+              Dashboard
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
-      <!-- Profile -->
-      <v-list-item link>
-        <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
-            {{ icons.mdiAccountOutline }}
-          </v-icon> -->
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>Profile</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <!-- Email -->
-      <v-list-item link>
-        <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
-            {{ icons.mdiEmailOutline }}
-          </v-icon> -->
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>Inbox</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <!-- Chat -->
-      <v-list-item link>
-        <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
-            {{ icons.mdiChatOutline }}
-          </v-icon> -->
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>Chat</v-list-item-title>
-        </v-list-item-content>
-
-        <v-list-item-action>
-          <v-badge inline color="error" content="2"> </v-badge>
-        </v-list-item-action>
-      </v-list-item>
-
       <v-divider class="my-2"></v-divider>
 
-      <!-- Settings -->
-      <v-list-item link>
+      <!-- Articulos -->
+      <v-list-item :to="{ name: 'GestorArticulos' }">
         <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
-            {{ icons.mdiCogOutline }}
-          </v-icon> -->
+          <v-icon size="22">
+            {{ icons.mdiImageOutline }}
+          </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Settings</v-list-item-title>
+          <v-list-item-title>
+              Articulos
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
-      <!-- Pricing -->
-      <v-list-item link>
+      <!-- Categorias -->
+      <v-list-item :to="{ name: 'GestorCategorias' }">
         <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
-            {{ icons.mdiCurrencyUsd }}
-          </v-icon> -->
+          <v-icon size="22">
+            {{ icons.mdiImageMultipleOutline }}
+          </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Pricing</v-list-item-title>
+          <v-list-item-title>
+              Categorias
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
-      <!-- FAQ -->
-      <v-list-item link>
+      <!-- Usuarios -->
+      <v-list-item :to="{ name: 'GestorUsuarios' }" v-if="isAdmin()">
         <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
-            {{ icons.mdiHelpCircleOutline }}
-          </v-icon> -->
+          <v-icon size="22">
+            {{ icons.mdiAccountMultipleOutline }}
+          </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>FAQ</v-list-item-title>
+          <v-list-item-title>
+              Usuarios
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
       <v-divider class="my-2"></v-divider>
 
       <!-- Logout -->
-      <v-list-item link>
+      <v-list-item @click="salir()">
         <v-list-item-icon class="me-2">
-          <!-- <v-icon size="22">
+          <v-icon size="22">
             {{ icons.mdiLogoutVariant }}
-          </v-icon> -->
+          </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>Logout</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
+    
   </v-menu>
 </template>
 
 <script>
-// import {
-//   mdiAccountOutline,
-//   mdiEmailOutline,
-//   mdiCheckboxMarkedOutline,
-//   mdiChatOutline,
-//   mdiCogOutline,
-//   mdiCurrencyUsd,
-//   mdiHelpCircleOutline,
-//   mdiLogoutVariant,
-// } from "@mdi/js";
+import decode from 'jwt-decode'
+import {
+  mdiAccountOutline,
+  mdiImageOutline,
+  mdiImageMultipleOutline,
+  mdiAccountMultipleOutline,
+  mdiLogoutVariant,
+} from "@mdi/js";
 
 export default {
-  setup() {
+  data() {
     return {
       icons: {
-        // mdiAccountOutline,
-        // mdiEmailOutline,
-        // mdiCheckboxMarkedOutline,
-        // mdiChatOutline,
-        // mdiCogOutline,
-        // mdiCurrencyUsd,
-        // mdiHelpCircleOutline,
-        // mdiLogoutVariant,
+        mdiAccountOutline,
+        mdiImageOutline,
+        mdiImageMultipleOutline,
+        mdiAccountMultipleOutline,
+        mdiLogoutVariant,
       },
     };
   },
+  methods: {
+    salir(){
+      localStorage.removeItem('token');
+      this.$router.push({
+          name:'Login'
+          })
+      },
+      isAdmin(){
+        let token = localStorage.getItem('token');
+        let decodificar = decode(token);
+        let rol = decodificar.rol;
+        console.log(rol);
+        return rol === 'administrador'? true : false;
+      },
+    },
 };
 </script>
 
