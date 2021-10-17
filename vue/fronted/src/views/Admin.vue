@@ -2,7 +2,7 @@
   <v-app>
     <v-card class="overflow-hidden">
       <v-app-bar
-        src="../assets/images/frutas.jpg"
+        src="img/images/frutas.jpg"
         color="#6A76AB"
         dark
         shrink-on-scroll

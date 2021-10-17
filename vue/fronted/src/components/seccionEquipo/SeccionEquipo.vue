@@ -3,8 +3,11 @@
     <!-- Seccion Equipo - Desarrollada por David Fonseca -->
     <section class="seccion-equipo">
         <!-- Titulo de Seccion - Equipo -->
-        <div>
-            <h2 class="seccion-equipo_title">Nuestro Equipo<br>Grupo 61</h2>
+        <div class="row">
+            <p class="text-center seccion-equipo_subtitulo">
+                Los mejores desarrolladores
+            </p>
+            <h2 class="seccion-equipo_titulo">Nuestro Equipo Grupo 61</h2>
         </div>
         <!-- Seccion de tarjetas - Equipo --> 
         <div class="row justify-content-center seccion-equipo_body">
@@ -31,32 +34,20 @@ export default {
         members: miembrosData.members,
     };
   },
-  methods: {
-    setMembers: function () {
-        console.log(this.members);
-    }
-  },
-  computed: {
-
-  },
-  created() {
-    if(this.members){
-        this.setMembers();
-    }
-  },
 };
 </script>
 
 <style scoped>
 .seccion-equipo {
-    margin-top: 100px;
-    margin-bottom: 140px;
     background-color: #F4FEFF;
-    padding-top: 150px;
+    padding-top: 100px;
     padding-bottom: 150px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: 212529;
 }
 
-.seccion-equipo_title{
+.seccion-equipo_titulo{
     margin-bottom: 80px;
     text-align: center;
     color: #2b044d;
@@ -87,6 +78,7 @@ export default {
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.15);
     border-radius: 15px;
     background-color: #FFFFFF;
+    min-width: 200px;
 }
 
 
@@ -102,15 +94,17 @@ export default {
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    
+    .tarjeta-miembro-equipo {
+        height: 360px;
+    }
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .tarjeta-miembro-equipo {
-        height: 430px;
+        height: 420px;
+        min-width: 270px;
     }
-
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
