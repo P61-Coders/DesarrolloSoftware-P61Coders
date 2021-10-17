@@ -26,13 +26,6 @@
             "memberImage": "img/miembrosEquipo/David_Arias.jpg",
             "memberName": "David Arias",
             "memberDetails": " - Lorem ipsum dolor sit amet consectetur, adipisicing elit."
-        },
-        {
-            "memberId": "6111",
-            "memberTitle": "Dev Team",
-            "memberImage": "img/miembrosEquipo/Alfonso_Gallegos.jpg",
-            "memberName": "Alfonso Gallegos",
-            "memberDetails": " - Lorem ipsum dolor sit amet consectetur, adipisicing elit."
         }
     ]
 }

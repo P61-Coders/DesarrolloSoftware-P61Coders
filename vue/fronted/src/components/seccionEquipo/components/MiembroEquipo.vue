@@ -1,11 +1,12 @@
 <template>
     <!-- Tarjeta -->
-    <article 
-        class="col-10 col-sm-5 col-lg-3 col-xl-2 tarjeta-miembro-equipo">
+    <article class="col-10 col-sm-5 col-lg-2 tarjeta-miembro-equipo">
+        <!-- Background Imagen Tarjeta-->
         <div 
             class="row miembro-equipo_img"
             :style="{ 'backgroundImage': 'url(' + member.memberImage + ')' }">
         </div>
+        <!-- Body Tarjeta -->
         <div class="row miembro-equipo_body">
             <h3 class="miembro-equipo_title">{{ member.memberName }}</h3>
             <p class="miembro-equipo_par">
@@ -45,15 +46,11 @@ export default {
     height: 320px;
 }
 
-.miembro-equipo_body{
-
-}
-
 .miembro-equipo_title{
     color: #2b044d;
     font-family: 'Nunito', sans-serif;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .miembro-equipo_par{
@@ -62,18 +59,25 @@ export default {
     font-size: 13px;
     text-align: center;
 }
+
 @media (min-width: 992px) {
-
-    .miembro-equipo_par{
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 1200px) {
 
     .miembro-equipo_img {
         background-position: top;
+        height: 200px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    
+    .miembro-equipo_img {
+        background-position: top;
         height: 270px;
+    }
+
+    .miembro-equipo_par{
+        font-size: 14px;
     }
 }
 </style>

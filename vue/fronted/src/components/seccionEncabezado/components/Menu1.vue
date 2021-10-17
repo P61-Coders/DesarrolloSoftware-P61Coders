@@ -14,7 +14,7 @@
     >
     </submenu-menu-1>
 
-    <li class="nav-item link-menu-1">
+    <li class="nav-item link-menu-1 user-btn">
       <router-link class="nav-link" :to="{ name: 'Login' }" v-if="!isLogged">
         <button-1 :name="buttonName"></button-1>
       </router-link>
@@ -68,5 +68,10 @@ export default {
 .link-title:hover {
   font-weight: bold;
 }
+
+.user-btn {
+  min-width: 150px;
+}
+
 </style>
 

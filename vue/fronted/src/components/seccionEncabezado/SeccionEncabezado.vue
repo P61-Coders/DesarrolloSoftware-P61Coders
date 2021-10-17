@@ -39,6 +39,7 @@ export default {
 .header { 
   background-color: #F4FEFF;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.15);
+  min-height: 114px;
 }
 
 a {

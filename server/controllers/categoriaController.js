@@ -6,8 +6,6 @@ module.exports= {
         try {
             //validacion de nombre categoria, que no exista
             const checkNombre = await models.categoria.findOne({nombre:req.body.nombre});
-            
-           
             if (!checkNombre ) {
                 const registro = await models.categoria.create(req.body);
                 res.status(200).json(registro);
@@ -105,10 +103,7 @@ module.exports= {
                 const actualizar = await models.categoria.updateOne({_id:req.body._id},{
                 descripcion: req.body.descripcion,})
                 res.status(200).json(actualizar)
-            }
-
-
-            
+            } 
         } catch (error) {
             res.status(500).send({
                 message: "ocurrio un error interno"
@@ -116,9 +111,27 @@ module.exports= {
             });
             next(error);
         }
-
     },
 
-
-
+    delete: async (req,res,next)=>{
+        try {
+            const checkNombre = await models.categoria.findOne({nombre:req.body.nombre});
+            if (!checkNombre ){
+                const actualizar = await models.categoria.updateOne({_id:req.body._id},{
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,})
+                res.status(200).json(actualizar)
+            }else {
+                const actualizar = await models.categoria.updateOne({_id:req.body._id},{
+                descripcion: req.body.descripcion,})
+                res.status(200).json(actualizar)
+            }
+        } catch (error) {
+            res.status(500).send({
+                message: "ocurrio un error interno"
+                
+            });
+            next(error);
+        }
+    },
 }
