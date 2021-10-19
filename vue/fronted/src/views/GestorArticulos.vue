@@ -205,7 +205,7 @@ export default {
     },
     categoriasListar() {
       axios
-        .get("https://fruver-frontend-grupo-1.herokuapp.com/api/categoria/listActivos")
+        .get("https://app-fruver-grupo-1.herokuapp.com/api/categoria/listActivos")
         .then((response) => {
           let respuesta = response.data;
           respuesta.map((item) => {
@@ -224,7 +224,7 @@ export default {
     list() {
       //nota: no usar arraylist aca
       axios
-        .get("https://fruver-frontend-grupo-1.herokuapp.com/api/articulo/list")
+        .get("https://app-fruver-grupo-1.herokuapp.com/api/articulo/list")
         .then((response) => {
           this.articulos = response.data;
           console.log(response);
@@ -250,7 +250,7 @@ export default {
     deleteItemConfirm() {
       if (this.editedIndex > -1) {
         axios
-          .delete("https://fruver-frontend-grupo-1.herokuapp.com/api/articulo/remove", {
+          .delete("https://app-fruver-grupo-1.herokuapp.com/api/articulo/remove", {
             data: { _id: this.editedItem._id }, // es necesario enviarlo adentor de un objeto 'data'
           })
           .then((response) => {
@@ -283,7 +283,7 @@ export default {
     save() {
       if (this.editedIndex > -1) {
         axios
-          .put("https://fruver-frontend-grupo-1.herokuapp.com/api/articulo/update", {
+          .put("https://app-fruver-grupo-1.herokuapp.com/api/articulo/update", {
             _id: this.editedItem._id,
             nombre: this.editedItem.nombre,
             descripcion: this.editedItem.descripcion,
@@ -300,7 +300,7 @@ export default {
           });
       } else {
         axios
-          .post("https://fruver-frontend-grupo-1.herokuapp.com/api/articulo/add", {
+          .post("https://app-fruver-grupo-1.herokuapp.com/api/articulo/add", {
             nombre: this.editedItem.nombre,
             descripcion: this.editedItem.descripcion,
             codigo: this.editedItem.codigo,

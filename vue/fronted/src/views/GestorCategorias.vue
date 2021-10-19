@@ -197,7 +197,7 @@ export default {
     list() {
       //nota: no usar arraylist aca
       axios
-        .get("https://fruver-frontend-grupo-1.herokuapp.com/api/categoria/list")
+        .get("https://app-fruver-grupo-1.herokuapp.com/api/categoria/list")
         .then((response) => {
           this.categorias = response.data;
           console.log(response);
@@ -223,7 +223,7 @@ export default {
     deleteItemConfirm() {
       if (this.editedItem.activo === true) {
         axios
-          .put("https://fruver-frontend-grupo-1.herokuapp.com/api/categoria/desactivate", {
+          .put("https://app-fruver-grupo-1.herokuapp.com/api/categoria/desactivate", {
             _id: this.editedItem._id,
           })
           .then((response) => {
@@ -235,7 +235,7 @@ export default {
           });
       } else {
         axios
-          .put("https://fruver-frontend-grupo-1.herokuapp.com/api/categoria/activate", {
+          .put("https://app-fruver-grupo-1.herokuapp.com/api/categoria/activate", {
             _id: this.editedItem._id,
           })
           .then((response) => {
@@ -269,7 +269,7 @@ export default {
     save() {
       if (this.editedIndex > -1) {
         axios
-          .put("https://fruver-frontend-grupo-1.herokuapp.com/api/categoria/update", {
+          .put("https://app-fruver-grupo-1.herokuapp.com/api/categoria/update", {
             _id: this.editedItem._id,
             nombre: this.editedItem.nombre,
             descripcion: this.editedItem.descripcion,
@@ -283,7 +283,7 @@ export default {
           });
       } else {
         axios
-          .post("https://fruver-frontend-grupo-1.herokuapp.com/api/categoria/add", {
+          .post("https://app-fruver-grupo-1.herokuapp.com/api/categoria/add", {
             nombre: this.editedItem.nombre,
             descripcion: this.editedItem.descripcion,
             activo: this.editedItem.activo,
