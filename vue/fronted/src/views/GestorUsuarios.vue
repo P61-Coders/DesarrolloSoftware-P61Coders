@@ -225,7 +225,7 @@ export default {
     list() {
       //nota: no usar arraylist aca
       axios
-        .get("http://localhost:3000/api/usuario/list")
+        .get("https://fruver-frontend-grupo-1.herokuapp.com/api/usuario/list")
         .then((response) => {
           this.usuarios = response.data;
           console.log(response);
@@ -252,7 +252,7 @@ export default {
       // this.usuarios.splice(this.editedIndex, 1)
       if (this.editedItem.activo === true) {
         axios
-          .put("http://localhost:3000/api/usuario/desactivate", {
+          .put("https://fruver-frontend-grupo-1.herokuapp.com/api/usuario/desactivate", {
             _id: this.editedItem._id,
           })
           .then((response) => {
@@ -264,7 +264,7 @@ export default {
           });
       } else {
         axios
-          .put("http://localhost:3000/api/usuario/activate", {
+          .put("https://fruver-frontend-grupo-1.herokuapp.com/api/usuario/activate", {
             _id: this.editedItem._id,
           })
           .then((response) => {
@@ -309,7 +309,7 @@ export default {
         // Object.assign(this.usuarios[this.editedIndex], this.editedItem)
 
         axios
-          .put("http://localhost:3000/api/usuario/update", {
+          .put("https://fruver-frontend-grupo-1.herokuapp.com/api/usuario/update", {
             nombre: this.editedItem.nombre,
             correo: this.editedItem.correo,
             rol: this.editedItem.rol,
@@ -324,7 +324,7 @@ export default {
           });
       } else {
         axios
-          .post("http://localhost:3000/api/usuario/add", {
+          .post("https://fruver-frontend-grupo-1.herokuapp.com/api/usuario/add", {
             nombre: this.editedItem.nombre,
             correo: this.editedItem.correo,
             rol: this.editedItem.rol,

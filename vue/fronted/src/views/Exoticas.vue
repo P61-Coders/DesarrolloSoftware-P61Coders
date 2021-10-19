@@ -42,7 +42,7 @@ export default {
 
   methods: {
       list(){
-          axios.get('http://localhost:3000/api/articulo/list'
+          axios.get('https://fruver-frontend-grupo-1.herokuapp.com/api/articulo/list'
 
           ).then(response =>{
                   let articulos = response.data;

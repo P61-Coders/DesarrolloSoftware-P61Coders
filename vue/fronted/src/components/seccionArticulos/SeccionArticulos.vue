@@ -36,7 +36,7 @@ export default {
     list() {
       //nota: no usar arraylist aca
       axios
-        .get("http://localhost:3000/api/categoria/list")
+        .get("https://fruver-frontend-grupo-1.herokuapp.com/api/categoria/list")
         .then((response) => {
           this.categorias = response.data;
           console.log(this.categorias);
