@@ -40,7 +40,7 @@ export default {
       buttonName: "Log In",
       linksMenu: [
         { name: "Home" },
-        { name: "" },
+        { name: "Nosotros" },
         { name: "Calendario" },
       ],
       submenu: {

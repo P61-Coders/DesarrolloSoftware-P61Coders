@@ -1,0 +1,24 @@
+{
+    "categorias": [{
+            "Id": "001",
+            "Nombre": "Frutas",
+            "Image": "img/images/frutas.jpg",
+            "Descripcion": "Frutas colombianas, cultivadas en nuestra tierra",
+            "Activo": true
+        },
+        {
+            "Id": "002",
+            "Nombre": "Verduras",
+            "Image": "img/images/verduras.jpg",
+            "Descripcion": "Verduras de nuestro campo colombiano",
+            "Activo": true
+        },
+        {
+            "Id": "003",
+            "Nombre": "Frutas Exoticas",
+            "Image": "img/images/exoticas.jpg",
+            "Descripcion": "Frutas exóticas con propiedades únicas!",
+            "Activo": true
+        }
+    ]
+}

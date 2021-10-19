@@ -75,7 +75,7 @@ import axios from 'axios'
     methods: {
         //validaremos correo y contraseña, si todo es correcto lo manda a la view Admin
       validate () {
-        axios.post('https://app-fruver-grupo-1.herokuapp.com/api/usuario/login',{
+        axios.post('https://app-fruver-backend.herokuapp.com/api/usuario/login',{
             correo: this.correo,
             password: this.password
         })

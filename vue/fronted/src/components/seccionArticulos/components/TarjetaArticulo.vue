@@ -8,21 +8,21 @@
         >
             <img
                 class="articulo_imagen"
-                :src="articulo.link"
-                :alt="articulo.nombre"
+                :src="articulo.Image"
+                :alt="articulo.Nombre"
             />
         </div>
         <!-- Body -->
         <div class="col-5 articulo-body">
             <!-- Titulo -->
-            <h2 class="articulo-body_titulo">{{ articulo.nombre }}</h2>
+            <h2 class="articulo-body_titulo">{{ articulo.Nombre }}</h2>
             <!-- Parrafo -->
             <p class="articulo-body_par">
                 Click aquí para encontrar las mejores y todas las
                 verduras de nuestro campo colombiano
             </p>
             <!-- Boton -->
-            <router-link :to="{ name: articulo.nombre }">
+            <router-link :to="{ name: articulo.Nombre }">
                 <button-1 :name="buttonName"></button-1>
             </router-link>
         </div>

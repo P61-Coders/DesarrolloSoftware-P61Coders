@@ -5,14 +5,14 @@
         <!-- Body -->
         <div class="col-5 text-right articulo-body">
             <!-- Titulo -->
-            <h2 class="articulo-body_titulo">{{ articulo.nombre }}</h2>
+            <h2 class="articulo-body_titulo">{{ articulo.Nombre }}</h2>
             <!-- Parrafo -->
             <p class="articulo-body_par">
                 Click aquí para encontrar las mejores y todas las
                 verduras de nuestro campo colombiano
             </p>
             <!-- Boton -->
-            <router-link :to="{ name: articulo.nombre }">
+            <router-link :to="{ name: articulo.Nombre }">
                 <button-2 :name="buttonName"></button-2>
             </router-link>
         </div>
@@ -20,8 +20,8 @@
         <div class="col-7 col-img">
             <img
                 class="articulo_imagen"
-                :src="articulo.link"
-                :alt="articulo.nombre"
+                :src="articulo.Image"
+                :alt="articulo.Nombre"
             />
         </div>
     </article>
