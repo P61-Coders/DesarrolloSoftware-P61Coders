@@ -1,4 +1,4 @@
-# DesarrolloSoftware-P61Coders
+# MEVN Stack - Web application.
 
 Final project for term 3 of MinTic Colombia 2022. Simple web app using MEVN stack.
 
